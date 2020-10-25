@@ -13,7 +13,9 @@ function App() {
 
   return (
     <BrowserRouter>
+
       <div className="app">
+        <h1>Super Recognizer</h1>
         <Route path="/levels/:game" component={LevelsIndex} exact={true} />
         <Route path="/" component={GamesIndex} exact={true} />
         <Route path="/game/:game/:level" component={RememberTheFace} exact={true} />

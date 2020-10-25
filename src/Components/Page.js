@@ -2,10 +2,6 @@ import React from "react";
 import "firebase/firestore";
 import ScoreResult from "./ScoreResult";
 
-let numberOfPages;
-
-
-
 export default function Page({
   game,
   answer,
@@ -16,15 +12,13 @@ export default function Page({
   photoToShow,
   photoToShow2,
   score,
-  loading,
   correctAnswer,
+  numberOfPages,
 }) {
-  if (level === "I") numberOfPages = 10;
-  else if (level === "II") numberOfPages = 15;
-
   return (
     <>
       <div>
+        {console.log("number of pages", numberOfPages)}
         <>
           {currentPage === 0 && (
             <>
@@ -32,24 +26,18 @@ export default function Page({
                 {level === "I" && (
                   <div className="instructions">
                     <p>Remember this face</p>
-                    <div className="sweet-loading">
-                 
-                    </div>
-                    {!loading && (
+                    <div>
                       <img className="photo" src={photoToShow.url} />
-                    )}
+                    </div>
                   </div>
                 )}
                 {level === "II" && (
                   <div className="instructions">
                     <p>Remember these faces</p>
 
-                    {!loading && (
-                      <img className="photo" src={photoToShow.url} />
-                    )}
-                    {!loading && (
-                      <img className="photo" src={photoToShow2.url} />
-                    )}
+                    <img className="photo" src={photoToShow.url} />
+
+                    <img className="photo" src={photoToShow2.url} />
                   </div>
                 )}
                 <div className="buttonGroup">
@@ -67,26 +55,28 @@ export default function Page({
             <>
               <div>
                 <img className="photo" src={photoToShow.url} />
-
                 {level === "I" && <p>Is this the face you saw?</p>}
                 {level === "II" && <p>Is this one of the faces you saw?</p>}
 
-                {loading && correctAnswer === true && <p>Correct ✔</p>}
-                {loading && correctAnswer === false && <p>Incorrect X</p>}
-                {!loading && (
+                {correctAnswer === true && <p>Correct ✔</p>}
+                {correctAnswer === false && <p>Incorrect X</p>}
+                {
                   <div className="buttonGroup">
-                    <button className="answerButton"
+                    <button
+                      className="answerButton"
                       onClick={() => answer("YES", photoToShow.rightAnswer)}
                     >
                       <p>Yes</p>
                     </button>
-                    <button className="answerButton"
+
+                    <button
+                      className="answerButton"
                       onClick={() => answer("NO", photoToShow.rightAnswer)}
                     >
                       <p>No</p>
                     </button>
                   </div>
-                )}
+                }
               </div>
             </>
           )}
