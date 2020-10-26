@@ -6,7 +6,7 @@ import processImagesIII from "../Helpers/processImagesIII.js";
 import * as firebase from "firebase";
 import Page from "./Page";
 import "firebase/firestore";
-import typeArray from "./types";
+import typeArray from "../Data/types";
 
 function RememberTheFace({
   match: {
