@@ -40,6 +40,16 @@ export default function Page({
                     <img className="photo" src={photoToShow2.url} />
                   </div>
                 )}
+
+                {level === "III" && (
+                  <div className="instructions">
+                    <p>Remember these faces</p>
+
+                    <img className="photo" src={photoToShow.url} />
+
+                    <img className="photo" src={photoToShow2.url} />
+                  </div>
+                )}
                 <div className="buttonGroup">
                   <button className="answerButton" onClick={() => nextPage()}>
                     <p>Start</p>

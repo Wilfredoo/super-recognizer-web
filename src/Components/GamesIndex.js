@@ -6,7 +6,6 @@ function GamesIndex() {
   const gamesArray = ["Remember the Face", "Celebrity Match", "World of Averages"];
   return (
     <div className="container">
-      <h3 className="title">Super Recognizer</h3>
       <h2>Games</h2>
       {gamesArray &&
         gamesArray.map((data) => {

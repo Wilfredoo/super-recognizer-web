@@ -10,7 +10,6 @@ function LevelsIndex({
   const levelsArray = ['I', 'II', 'III'];
   return (
     <div className="container">
-      <h3 className="title">Super Recognizer</h3>
       <h2>Levels</h2>
       {levelsArray &&
         levelsArray.map((level) => {
