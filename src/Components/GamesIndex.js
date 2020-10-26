@@ -3,16 +3,19 @@ import { Link } from "react-router-dom";
 import "../App.css";
 
 function GamesIndex() {
-  const gamesArray = ["Remember the Face", "Celebrity Match", "World of Averages"];
+  // const urls = ["remember-the-face", "celebrity-match", "world-of-averages"];
+  // const games = ["Remember the Face", "Celebrity Match", "World of Averages"];
+  const games = [{url: "remember-the-face", title: "Remember the Face"}, {url: "celebrity-match", title: "Celebrity Match"}, {url: "world-of-averages", title: "World of Averages"}]
+
   return (
     <div className="container">
       <h2>Games</h2>
-      {gamesArray &&
-        gamesArray.map((data) => {
+      {games &&
+        games.map((data) => {
           return (
             <div>
-              <Link to={`/levels/${data}`}>
-                <p className="games">{data}</p>
+              <Link to={`/levels/${data.url}`}>
+                <p className="games">{data.title}</p>
               </Link>
             </div>
           );

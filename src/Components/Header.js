@@ -11,26 +11,26 @@ import Button from "@material-ui/core/Button";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import { withRouter } from "react-router-dom";
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   root: {
-    flexGrow: 1
+    flexGrow: 1,
   },
   menuButton: {
-    marginRight: theme.spacing(2)
+    marginRight: theme.spacing(2),
   },
   title: {
     [theme.breakpoints.down("xs")]: {
-      flexGrow: 1
-    }
+      flexGrow: 1,
+    },
   },
   headerOptions: {
     display: "flex",
     flex: 1,
-    justifyContent: "flex-end"
-  }
+    justifyContent: "flex-end",
+  },
 }));
 
-const Header = props => {
+const Header = (props) => {
   const { history } = props;
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -38,38 +38,42 @@ const Header = props => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("xs"));
 
-  const handleMenu = event => {
+  const handleMenu = (event) => {
     setAnchorEl(event.currentTarget);
   };
 
-  const handleMenuClick = pageURL => {
+  const handleMenuClick = (pageURL) => {
     history.push(pageURL);
     setAnchorEl(null);
   };
 
-  const handleButtonClick = pageURL => {
+  const handleButtonClick = (pageURL) => {
     history.push(pageURL);
   };
 
   const menuItems = [
     {
       menuTitle: "Games",
-      pageURL: "/"
+      pageURL: "/",
     },
     {
       menuTitle: "About",
-      pageURL: "/about"
-    }
+      pageURL: "/about",
+    },
   ];
 
   return (
     <div className={classes.root}>
-      <AppBar position="static">
+      <AppBar position="static" style={{background: "#0278ae"}}>
         <Toolbar>
-            <Button color="inherit">
-          <Typography onClick={() => handleButtonClick("/")} variant="h6" className={classes.title}>
-            Super Recognizer
-          </Typography>
+          <Button color="inherit">
+            <Typography
+              onClick={() => handleButtonClick("/")}
+              variant="h6"
+              className={classes.title}
+            >
+              Super Recognizer
+            </Typography>
           </Button>
           {isMobile ? (
             <>
@@ -87,17 +91,17 @@ const Header = props => {
                 anchorEl={anchorEl}
                 anchorOrigin={{
                   vertical: "top",
-                  horizontal: "right"
+                  horizontal: "right",
                 }}
                 keepMounted
                 transformOrigin={{
                   vertical: "top",
-                  horizontal: "right"
+                  horizontal: "right",
                 }}
                 open={open}
                 onClose={() => setAnchorEl(null)}
               >
-                {menuItems.map(menuItem => {
+                {menuItems.map((menuItem) => {
                   const { menuTitle, pageURL } = menuItem;
                   return (
                     <MenuItem onClick={() => handleMenuClick(pageURL)}>
@@ -109,25 +113,18 @@ const Header = props => {
             </>
           ) : (
             <div className={classes.headerOptions}>
-                <Button
-                color="inherit"
-                onClick={() => handleButtonClick("/")}
-              >
+              <Button color="inherit" onClick={() => handleButtonClick("/")}>
                 TRAIN
               </Button>
-              <Button
-                color="inherit"
-                onClick={() => handleButtonClick("/")}
-              >
+              <Button color="inherit" onClick={() => handleButtonClick("/")}>
                 HOME
               </Button>
               <Button
                 color="inherit"
                 onClick={() => handleButtonClick("/about")}
-              >
+              > 
                 ABOUT
               </Button>
-
             </div>
           )}
         </Toolbar>

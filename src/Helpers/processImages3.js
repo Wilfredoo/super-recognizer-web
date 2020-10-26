@@ -56,17 +56,6 @@ const processImages3 = async (images, typeArray, level) => {
         },
       });
     }
-
-    // for (let i = 0; i < numberOfButtons; i++) {
-    //   console.log("iiiii", i);
-    //   allImages.push({
-    //     answers: {
-
-    //       wrongAnswer`${i}`: slicedShuffledWrongTypes[1],
-    //     }
-
-    //    })
-    // }
   });
 
   const shuffledAllImages = shuffle(allImages);
