@@ -1,6 +1,6 @@
 import LevelsIndex from "./LevelsIndex";
-import RememberTheFace from "./RememberTheFace";
-import CelebrityMatch from "./CelebrityMatch/CelebrityMatch";
+import RememberTheFace from "./Games/RememberTheFace/RememberTheFace";
+import CelebrityMatch from "./Games/CelebrityMatch/CelebrityMatch";
 import firebaseConfigDEV from "../config/FirebaseConfigDEV";
 import * as firebase from "firebase";
 import React from "react";

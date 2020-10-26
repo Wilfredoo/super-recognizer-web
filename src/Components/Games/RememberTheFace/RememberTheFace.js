@@ -1,16 +1,16 @@
 import React, { useState, useEffect } from "react";
-import "../App.css";
-import processImages from "../Helpers/processImages.js";
-import processImagesII from "../Helpers/processImagesII.js";
-import processImagesIII from "../Helpers/processImagesIII.js";
+import "../../../App.css";
+import processImages from "../../../Helpers/processImages.js";
+import processImagesII from "../../../Helpers/processImagesII.js";
+import processImagesIII from "../../../Helpers/processImagesIII.js";
 import * as firebase from "firebase";
 import Page from "./Page";
 import "firebase/firestore";
-import typeArray from "../Data/types";
+import typeArray from "../../../Data/types";
 
 function RememberTheFace({
   match: {
-    params: { level, game },
+    params: { level },
   },
 }) {
   const [currentPage, setCurrentPage] = useState(0);
@@ -23,9 +23,7 @@ function RememberTheFace({
   const londonFacesRef = store.collection("london_faces");
   const asianGirlsRef = store.collection("asian_girls");
   const nottinghamRef = store.collection("nottingham_faces");
-
   const pageArray = Array.from(Array(20).keys());
-
   const randomTypeIndex = Math.floor(Math.random() * typeArray.length);
 
   useEffect(() => {
@@ -86,7 +84,7 @@ function RememberTheFace({
     setTimeout(function () {
       nextPage();
       setCorrectAnswer(null);
-    }, 500);
+    }, 10);
   };
 
   const arrayOfPages = pageArray.map((data, i) => {
@@ -95,7 +93,6 @@ function RememberTheFace({
         <Page
           key={i}
           correctAnswer={correctAnswer}
-          game={game}
           level={level}
           answer={answer}
           nextPage={nextPage}
@@ -113,7 +110,7 @@ function RememberTheFace({
 
   return (
     <div className="container">
-      <h3>{game}</h3>
+      <h3>Remember the Face</h3>
       <h3>Level {level}</h3>
       {picArrayState && arrayOfPages[currentPage]}
     </div>

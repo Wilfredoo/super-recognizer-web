@@ -3,8 +3,6 @@ import { Link } from "react-router-dom";
 import "../App.css";
 
 function GamesIndex() {
-  // const urls = ["remember-the-face", "celebrity-match", "world-of-averages"];
-  // const games = ["Remember the Face", "Celebrity Match", "World of Averages"];
   const games = [{url: "remember-the-face", title: "Remember the Face"}, {url: "celebrity-match", title: "Celebrity Match"}, {url: "world-of-averages", title: "World of Averages"}]
 
   return (

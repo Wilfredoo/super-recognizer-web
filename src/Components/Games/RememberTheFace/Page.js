@@ -1,6 +1,6 @@
 import React from "react";
 import "firebase/firestore";
-import ScoreResult from "./ScoreResult";
+import ScoreResult from "../../ScoreResult";
 
 export default function Page({
   game,
@@ -18,7 +18,6 @@ export default function Page({
   return (
     <>
       <div>
-        {console.log("number of pages", numberOfPages)}
         <>
           {currentPage === 0 && (
             <>
@@ -93,7 +92,7 @@ export default function Page({
           {currentPage === numberOfPages + 1 && (
             <>
               <ScoreResult
-                game={game}
+                game={"remember-the-face"}
                 score={score}
                 totalQuestions={numberOfPages}
               />

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import Page from "./Page";
 import * as firebase from "firebase";
 import "firebase/firestore";
-import processImages2 from "../../Helpers/processImages2.js";
+import processImages2 from "../../../Helpers/processImages2.js";
 
 export default function CelebrityMatch({
   match: {

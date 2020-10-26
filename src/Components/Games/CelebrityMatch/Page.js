@@ -1,6 +1,6 @@
 import React from "react";
 import "firebase/firestore";
-import ScoreResult from "../ScoreResult";
+import ScoreResult from "../../ScoreResult";
 
 export default function Page({
   game,
