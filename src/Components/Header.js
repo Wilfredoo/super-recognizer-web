@@ -66,9 +66,11 @@ const Header = props => {
     <div className={classes.root}>
       <AppBar position="static">
         <Toolbar>
-          <Typography variant="h6" className={classes.title}>
+            <Button color="inherit">
+          <Typography onClick={() => handleButtonClick("/")} variant="h6" className={classes.title}>
             Super Recognizer
           </Typography>
+          </Button>
           {isMobile ? (
             <>
               <IconButton
@@ -107,6 +109,12 @@ const Header = props => {
             </>
           ) : (
             <div className={classes.headerOptions}>
+                <Button
+                color="inherit"
+                onClick={() => handleButtonClick("/")}
+              >
+                TRAIN
+              </Button>
               <Button
                 color="inherit"
                 onClick={() => handleButtonClick("/")}
@@ -119,6 +127,7 @@ const Header = props => {
               >
                 ABOUT
               </Button>
+
             </div>
           )}
         </Toolbar>
