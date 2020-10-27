@@ -17,6 +17,9 @@ const useStyles = makeStyles((theme) => ({
   },
   menuButton: {
     marginRight: theme.spacing(2),
+    flex: 1,
+    justifyContent: "flex-end",
+
   },
   title: {
     [theme.breakpoints.down("xs")]: {
@@ -72,8 +75,9 @@ const Header = (props) => {
               variant="h6"
               className={classes.title}
             >
-              Super Recognizer
+              Super Recognizer 
             </Typography>
+            <img className="jesus" src="/white-jesus.png" />
           </Button>
           {isMobile ? (
             <>

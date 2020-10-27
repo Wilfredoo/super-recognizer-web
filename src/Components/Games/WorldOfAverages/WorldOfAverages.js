@@ -2,43 +2,30 @@ import React, { useState, useEffect } from "react";
 import Page from "./Page";
 import * as firebase from "firebase";
 import "firebase/firestore";
-import processImages2 from "../../../Helpers/processImages2.js";  
+import processImages3 from "../../../Helpers/processImages3.js";
+import typeArray from "./Types";
 
-export default function CelebrityMatch({
+export default function WorldOfAverages({
   match: {
-    params: { celebrity, game },
+    params: { level },
   },
 }) {
   const [score, setScore] = useState(0);
   const [currentPage, setCurrentPage] = useState(0);
-  const [celebrityName, setCelebrityName] = useState(null);
   const store = firebase.firestore();
   const [picArrayState, setPicArrayState] = useState(null);
   const [correctAnswer, setCorrectAnswer] = useState(null);
   const [loading, setLoading] = useState(false);
-  const celebritiesRef = store.collection("celebrities");
+  const worldOfAveragesRef = store.collection("world_of_averages");
   const pageArray = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
 
   async function getAllImages() {
-    const realImagesSnapshot = await celebritiesRef
-      .where("name", "==", celebrity)
-      .where("real", "==", true)
-      .get();
+    const imagesSnapshot = await worldOfAveragesRef.get();
 
-    const fakeImagesSnapshot = await celebritiesRef
-      .where("name", "==", celebrity)
-      .where("real", "==", false)
-      .get();
-
-    const realImagesDocs = await realImagesSnapshot.docs;
-    const fakeImagesDocs = await fakeImagesSnapshot.docs;
-    await realImagesDocs.forEach((docSnapshot) => {
-      setCelebrityName(docSnapshot.data().name);
-    });
-
-    const slicedShuffledMixedArray = await processImages2(
-      realImagesDocs,
-      fakeImagesDocs
+    const slicedShuffledMixedArray = await processImages3(
+      imagesSnapshot,
+      typeArray,
+      level
     );
     setPicArrayState(slicedShuffledMixedArray);
   }
@@ -46,10 +33,6 @@ export default function CelebrityMatch({
   useEffect(() => {
     getAllImages();
   }, []);
-
-  const shuffle = () => {
-    getAllImages();
-  };
 
   const nextPage = () => {
     setCurrentPage((currentPage) => currentPage + 1);
@@ -59,12 +42,9 @@ export default function CelebrityMatch({
     setScore(score + 1);
   };
 
-  const answer = async (answer, correctPicture) => {
+  const answer = async (answer) => {
     setLoading(true);
-    if (
-      (answer === "YES" && correctPicture) ||
-      (answer === "NO" && !correctPicture)
-    ) {
+    if (answer) {
       await increaseScore();
       setCorrectAnswer(true);
     } else setCorrectAnswer(false);
@@ -82,14 +62,13 @@ export default function CelebrityMatch({
           loading={loading}
           correctAnswer={correctAnswer}
           key={i}
-          game={game}
+          game={"World of Averages"}
+          level={level}
           answer={answer}
           nextPage={nextPage}
-          shuffle={shuffle}
           currentPage={currentPage}
-          photoToShow={picArrayState[currentPage]}
+          personToShow={picArrayState[currentPage]}
           score={score}
-          celebrity={celebrityName}
         />
       );
     }
@@ -97,8 +76,8 @@ export default function CelebrityMatch({
   return (
     <>
       <div>
-        <h3>Celebrity Match</h3>
-        <h4>Level {celebrity}</h4>
+        <h3>World of Averages</h3>
+        <h4>Level {level}</h4>
         {picArrayState && arrayOfPages[currentPage]}
       </div>
     </>

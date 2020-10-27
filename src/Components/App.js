@@ -1,6 +1,7 @@
 import LevelsIndex from "./LevelsIndex";
 import RememberTheFace from "./Games/RememberTheFace/RememberTheFace";
 import CelebrityMatch from "./Games/CelebrityMatch/CelebrityMatch";
+import WorldOfAverages from "./Games/WorldOfAverages/WorldOfAverages";
 import firebaseConfigDEV from "../config/FirebaseConfigDEV";
 import * as firebase from "firebase";
 import React from "react";
@@ -23,7 +24,7 @@ export default function App() {
           <Route exact path="/about" render={(props) => <About {...props} />} />
           <Route path="/levels/:game" component={LevelsIndex} exact={true} />
           <Route
-            path="/game/celebrity-match/:level"
+            path="/game/celebrity-match/:celebrity"
             component={CelebrityMatch}
             exact={true}
           />
@@ -32,11 +33,11 @@ export default function App() {
             component={RememberTheFace}
             exact={true}
           />
-          {/* <Route
+          <Route
             path="/game/world-of-averages/:level"
             component={WorldOfAverages}
             exact={true}
-          /> */}
+          />
         </Switch>
       </div>
     </Router>

@@ -8,8 +8,18 @@ function LevelsIndex({
   },
 }) {
   const levelsArray = ['I', 'II', 'III'];
-  const celebrities = ['Taylor Swift', 'Bruno Mars', 'Tom Cruise', "Shakira"];
-
+  const celebrities = [
+    "Trump",
+    "Shakira",
+    "Bruno Mars",
+    "Ed Sheeran",
+    "Taylor Swift",
+    "Tom Cruise",
+    "Keanu Reeves",
+    "Kit Harrington",
+    "Lili Reinhart",
+    "Michelle Obama",
+  ];
   return (
     <div className="container">
       <h2>Levels</h2>

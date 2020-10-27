@@ -2,9 +2,9 @@ import shuffle from "./shuffle";
 
 const processImages3 = async (images, typeArray, level) => {
   let numberOfButtons = 5;
-  if (level === "III") numberOfButtons = 8;
+  if (level === "III") numberOfButtons = 9;
   if (level === "II") numberOfButtons = 5;
-  if (level === "I") numberOfButtons = 2;
+  if (level === "I") numberOfButtons = 3;
 
   console.log("number", numberOfButtons);
   const allImages = [];
@@ -32,6 +32,8 @@ const processImages3 = async (images, typeArray, level) => {
           wrongAnswer5: slicedShuffledWrongTypes[5],
           wrongAnswer6: slicedShuffledWrongTypes[6],
           wrongAnswer7: slicedShuffledWrongTypes[7],
+          wrongAnswer8: slicedShuffledWrongTypes[7],
+
         },
       });
     } else if (level === "II") {
@@ -53,6 +55,8 @@ const processImages3 = async (images, typeArray, level) => {
           rightAnswer: docSnapshot.data().type,
           wrongAnswer0: slicedShuffledWrongTypes[0],
           wrongAnswer1: slicedShuffledWrongTypes[1],
+          wrongAnswer2: slicedShuffledWrongTypes[1],
+
         },
       });
     }
