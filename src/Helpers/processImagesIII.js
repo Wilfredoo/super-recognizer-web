@@ -65,7 +65,6 @@ const processImagesIII = async (imagesArray) => {
   slicedShuffledMixedArray = await shuffledMixedArray.slice(0, 15); // let cut it again
   await slicedShuffledMixedArray.unshift(firstSubjectRandomTruePic); // add first truthie at the beginning
   slicedShuffledMixedArray.unshift(secondSubjectRandomTruePic); // add second truthie at the beginning
-  // console.log("mixed", slicedShuffledMixedArray)
   return slicedShuffledMixedArray;
 };
 

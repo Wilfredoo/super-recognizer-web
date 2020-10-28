@@ -6,7 +6,6 @@ const processImages3 = async (images, typeArray, level) => {
   if (level === "II") numberOfButtons = 5;
   if (level === "I") numberOfButtons = 3;
 
-  console.log("number", numberOfButtons);
   const allImages = [];
 
   await images.forEach((docSnapshot) => {

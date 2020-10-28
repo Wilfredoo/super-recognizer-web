@@ -7,7 +7,11 @@ import * as firebase from "firebase";
 import React from "react";
 import GamesIndex from "./GamesIndex";
 import About from "./About";
+import Home from "./Home";
+import Sponsors from "./Sponsors";
+import Feedback from "./Feedback";
 import Header from "./Header";
+import Footer from "./Footer";
 import { Route, Switch, BrowserRouter as Router } from "react-router-dom";
 
 export default function App() {
@@ -20,8 +24,23 @@ export default function App() {
       <Header />
       <div className="app">
         <Switch>
-          <Route exact from="/" render={(props) => <GamesIndex {...props} />} />
+          <Route
+            exact
+            from="/games"
+            render={(props) => <GamesIndex {...props} />}
+          />
+          <Route exact from="/" render={(props) => <Home {...props} />} />
           <Route exact path="/about" render={(props) => <About {...props} />} />
+          <Route
+            exact
+            path="/sponsors"
+            render={(props) => <Sponsors {...props} />}
+          />
+             <Route
+            exact
+            path="/feedback"
+            render={(props) => <Feedback {...props} />}
+          />
           <Route path="/levels/:game" component={LevelsIndex} exact={true} />
           <Route
             path="/game/celebrity-match/:celebrity"
@@ -40,6 +59,7 @@ export default function App() {
           />
         </Switch>
       </div>
+      <Footer />
     </Router>
   );
 }

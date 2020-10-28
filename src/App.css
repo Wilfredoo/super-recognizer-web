@@ -1,7 +1,10 @@
+
+/* 
 .app {
   text-align: center;
   padding: 0;
   margin: 0;
+  
 }
 
 .title {
@@ -64,4 +67,44 @@ a:hover {
 .jesus {
   height: 60px;
   margin-left: -10px;
+} */
+
+/* .footer {
+  background-color: #0278ae;
+  text-align: center;
+} */
+
+/* .footerText {
+  vertical-align: middle;
+  line-height: 50px;
+  color: white;
+  font-size: 14px;
+}
+
+@media screen and (max-width: 992px) {
+  .footerText {
+    vertical-align: middle;
+    line-height: 50px;
+    color: white;
+    font-size: 12px;
+  }
+} */
+
+html, body {
+  height: 100%
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+.content {
+  flex: 1 0 auto;
+}
+
+.footer {
+  background-color: red;
+  height: 50px;
+  flex-shrink: 0;
 }

@@ -3,7 +3,6 @@ import "firebase/firestore";
 import { Link } from "react-router-dom";
 
 export default function ScoreResult({ game, score, totalQuestions }) {
-  console.log("game?", game)
   return (
     <>
       <div className="score">

@@ -19,7 +19,6 @@ const useStyles = makeStyles((theme) => ({
     marginRight: theme.spacing(2),
     flex: 1,
     justifyContent: "flex-end",
-
   },
   title: {
     [theme.breakpoints.down("xs")]: {
@@ -56,18 +55,30 @@ const Header = (props) => {
 
   const menuItems = [
     {
-      menuTitle: "Games",
-      pageURL: "/",
+      menuTitle: "Train",
+      pageURL: "/games",
+    },
+    {
+      menuTitle: "Home",
+      pageURL: "/home",
     },
     {
       menuTitle: "About",
       pageURL: "/about",
     },
+    {
+      menuTitle: "Sponsors",
+      pageURL: "/sponsors",
+    },
+    {
+      menuTitle: "Feedback",
+      pageURL: "/feedback",
+    },
   ];
 
   return (
     <div className={classes.root}>
-      <AppBar position="static" style={{background: "#0278ae"}}>
+      <AppBar position="static" style={{ background: "#0278ae" }}>
         <Toolbar>
           <Button color="inherit">
             <Typography
@@ -75,7 +86,7 @@ const Header = (props) => {
               variant="h6"
               className={classes.title}
             >
-              Super Recognizer 
+              Super Recognizer
             </Typography>
             <img className="jesus" src="/white-jesus.png" />
           </Button>
@@ -117,7 +128,10 @@ const Header = (props) => {
             </>
           ) : (
             <div className={classes.headerOptions}>
-              <Button color="inherit" onClick={() => handleButtonClick("/")}>
+              <Button
+                color="inherit"
+                onClick={() => handleButtonClick("/games")}
+              >
                 TRAIN
               </Button>
               <Button color="inherit" onClick={() => handleButtonClick("/")}>
@@ -126,8 +140,20 @@ const Header = (props) => {
               <Button
                 color="inherit"
                 onClick={() => handleButtonClick("/about")}
-              > 
+              >
                 ABOUT
+              </Button>
+              <Button
+                color="inherit"
+                onClick={() => handleButtonClick("/sponsors")}
+              >
+                SPONSORS
+              </Button>
+              <Button
+                color="inherit"
+                onClick={() => handleButtonClick("/feedback")}
+              >
+                FEEDBACK
               </Button>
             </div>
           )}
