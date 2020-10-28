@@ -13,6 +13,7 @@ import Feedback from "./Feedback";
 import Header from "./Header";
 import Footer from "./Footer";
 import { Route, Switch, BrowserRouter as Router } from "react-router-dom";
+import HttpsRedirect from "react-https-redirect";
 
 export default function App() {
   if (!firebase.apps.length) {
@@ -20,6 +21,8 @@ export default function App() {
   }
 
   return (
+    <HttpsRedirect>
+
     <Router>
       <Header />
       <div className="app">
@@ -61,5 +64,7 @@ export default function App() {
       </div>
       <Footer />
     </Router>
+    </HttpsRedirect>
+
   );
 }
