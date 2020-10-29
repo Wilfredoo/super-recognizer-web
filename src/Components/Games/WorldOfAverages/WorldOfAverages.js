@@ -62,7 +62,7 @@ export default function WorldOfAverages({
           loading={loading}
           correctAnswer={correctAnswer}
           key={i}
-          game={"World of Averages"}
+          game={"world-of-averages"}
           level={level}
           answer={answer}
           nextPage={nextPage}

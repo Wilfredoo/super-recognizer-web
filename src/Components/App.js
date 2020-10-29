@@ -22,49 +22,51 @@ export default function App() {
 
   return (
     <HttpsRedirect>
-
-    <Router>
-      <Header />
-      <div className="app">
-        <Switch>
-          <Route
-            exact
-            from="/games"
-            render={(props) => <GamesIndex {...props} />}
-          />
-          <Route exact from="/" render={(props) => <Home {...props} />} />
-          <Route exact path="/about" render={(props) => <About {...props} />} />
-          <Route
-            exact
-            path="/sponsors"
-            render={(props) => <Sponsors {...props} />}
-          />
-             <Route
-            exact
-            path="/feedback"
-            render={(props) => <Feedback {...props} />}
-          />
-          <Route path="/levels/:game" component={LevelsIndex} exact={true} />
-          <Route
-            path="/game/celebrity-match/:celebrity"
-            component={CelebrityMatch}
-            exact={true}
-          />
-          <Route
-            path="/game/remember-the-face/:level"
-            component={RememberTheFace}
-            exact={true}
-          />
-          <Route
-            path="/game/world-of-averages/:level"
-            component={WorldOfAverages}
-            exact={true}
-          />
-        </Switch>
-      </div>
-      <Footer />
-    </Router>
+      <Router>
+        <Header />
+        <div className="app">
+          <Switch>
+            <Route
+              exact
+              from="/games"
+              render={(props) => <GamesIndex {...props} />}
+            />
+            <Route exact from="/" render={(props) => <Home {...props} />} />
+            <Route
+              exact
+              path="/about"
+              render={(props) => <About {...props} />}
+            />
+            <Route
+              exact
+              path="/sponsors"
+              render={(props) => <Sponsors {...props} />}
+            />
+            <Route
+              exact
+              path="/feedback"
+              render={(props) => <Feedback {...props} />}
+            />
+            <Route path="/levels/:game" component={LevelsIndex} exact={true} />
+            <Route
+              path="/game/celebrity-match/:celebrity"
+              component={CelebrityMatch}
+              exact={true}
+            />
+            <Route
+              path="/game/remember-the-face/:level"
+              component={RememberTheFace}
+              exact={true}
+            />
+            <Route
+              path="/game/world-of-averages/:level"
+              component={WorldOfAverages}
+              exact={true}
+            />
+          </Switch>
+        </div>
+        <Footer />
+      </Router>
     </HttpsRedirect>
-
   );
 }

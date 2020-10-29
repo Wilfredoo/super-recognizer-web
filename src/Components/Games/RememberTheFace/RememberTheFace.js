@@ -84,7 +84,7 @@ function RememberTheFace({
     setTimeout(function () {
       nextPage();
       setCorrectAnswer(null);
-    }, 10);
+    }, 500);
   };
 
   const arrayOfPages = pageArray.map((data, i) => {

@@ -1,14 +1,13 @@
-
-/* 
 .app {
   text-align: center;
   padding: 0;
   margin: 0;
-  
+  min-height: calc(100vh - 156px);
 }
 
 .title {
   text-decoration: none;
+  font-size: 10px;
 }
 
 .header {
@@ -67,44 +66,32 @@ a:hover {
 .jesus {
   height: 60px;
   margin-left: -10px;
-} */
+}
 
-/* .footer {
-  background-color: #0278ae;
-  text-align: center;
-} */
-
-/* .footerText {
+.footerText {
   vertical-align: middle;
   line-height: 50px;
   color: white;
   font-size: 14px;
 }
 
+.footer {
+  text-align: center;
+  height: 50px;
+  background-color: #0278ae;
+}
+
+.textContainer {
+  margin: 50px 20px 50px 20px;
+  line-height: 40px;  
+}
+
 @media screen and (max-width: 992px) {
   .footerText {
-    vertical-align: middle;
-    line-height: 50px;
-    color: white;
     font-size: 12px;
   }
-} */
 
-html, body {
-  height: 100%
-}
-
-body {
-  display: flex;
-  flex-direction: column;
-}
-
-.content {
-  flex: 1 0 auto;
-}
-
-.footer {
-  background-color: red;
-  height: 50px;
-  flex-shrink: 0;
+  .jesus {
+    height: 45px;
+  }
 }

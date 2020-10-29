@@ -23,6 +23,7 @@ const useStyles = makeStyles((theme) => ({
   title: {
     [theme.breakpoints.down("xs")]: {
       flexGrow: 1,
+      fontSize: 12
     },
   },
   headerOptions: {

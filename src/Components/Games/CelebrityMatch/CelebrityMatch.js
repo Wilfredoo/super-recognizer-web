@@ -6,7 +6,7 @@ import processImages2 from "../../../Helpers/processImages2.js";
 
 export default function CelebrityMatch({
   match: {
-    params: { celebrity, game },
+    params: { celebrity },
   },
 }) {
   const [score, setScore] = useState(0);
@@ -82,7 +82,7 @@ export default function CelebrityMatch({
           loading={loading}
           correctAnswer={correctAnswer}
           key={i}
-          game={game}
+          game={"celebrity-match"}
           answer={answer}
           nextPage={nextPage}
           shuffle={shuffle}
