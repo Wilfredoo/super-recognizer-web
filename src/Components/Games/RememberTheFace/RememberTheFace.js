@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "../../../App.css";
+import "../../../App.scss";
 import processImages from "../../../Helpers/processImages.js";
 import processImagesII from "../../../Helpers/processImagesII.js";
 import processImagesIII from "../../../Helpers/processImagesIII.js";
