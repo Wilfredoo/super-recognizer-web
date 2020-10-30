@@ -6,7 +6,6 @@ import firebaseConfigDEV from "../config/FirebaseConfigDEV";
 import * as firebase from "firebase";
 import React from "react";
 import GamesIndex from "./GamesIndex";
-import About from "./About";
 import Home from "./Home";
 import Sponsors from "./Sponsors";
 import Feedback from "./Feedback";
@@ -23,6 +22,7 @@ export default function App() {
   return (
     <HttpsRedirect>
       <Router>
+        <div class="appParent">
         <Header />
         <div className="app">
           <Switch>
@@ -32,11 +32,6 @@ export default function App() {
               render={(props) => <GamesIndex {...props} />}
             />
             <Route exact from="/" render={(props) => <Home {...props} />} />
-            <Route
-              exact
-              path="/about"
-              render={(props) => <About {...props} />}
-            />
             <Route
               exact
               path="/sponsors"
@@ -66,6 +61,7 @@ export default function App() {
           </Switch>
         </div>
         <Footer />
+        </div>
       </Router>
     </HttpsRedirect>
   );

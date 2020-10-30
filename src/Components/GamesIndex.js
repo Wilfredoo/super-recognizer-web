@@ -6,7 +6,7 @@ function GamesIndex() {
   const games = [{url: "remember-the-face", title: "Remember the Face"}, {url: "celebrity-match", title: "Celebrity Match"}, {url: "world-of-averages", title: "World of Averages"}]
 
   return (
-    <div className="container">
+    <div className="componentContainer">
       <h2>Games</h2>
       {games &&
         games.map((data) => {

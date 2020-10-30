@@ -16,14 +16,14 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
   },
   menuButton: {
-    marginRight: theme.spacing(2),
     flex: 1,
     justifyContent: "flex-end",
+    marginRight: 16,
   },
   title: {
     [theme.breakpoints.down("xs")]: {
       flexGrow: 1,
-      fontSize: 12
+      fontSize: 12,
     },
   },
   headerOptions: {
@@ -56,19 +56,16 @@ const Header = (props) => {
 
   const menuItems = [
     {
-      menuTitle: "Train",
+      menuTitle: "Home",
+      pageURL: "/",
+    },
+    {
+      menuTitle: "Games",
       pageURL: "/games",
     },
+
     {
-      menuTitle: "Home",
-      pageURL: "/home",
-    },
-    {
-      menuTitle: "About",
-      pageURL: "/about",
-    },
-    {
-      menuTitle: "Sponsors",
+      menuTitle: "Become a Sponsor",
       pageURL: "/sponsors",
     },
     {
@@ -82,14 +79,9 @@ const Header = (props) => {
       <AppBar position="static" style={{ background: "#0278ae" }}>
         <Toolbar>
           <Button color="inherit">
-            <Typography
-              onClick={() => handleButtonClick("/")}
-              variant="h6"
-              className={classes.title}
-            >
-              Super Recognizer
-            </Typography>
-            <img className="jesus" src="/white-jesus.png" />
+            <div className="superDiv">
+              <img className="super" src="/super.png" />
+            </div>
           </Button>
           {isMobile ? (
             <>
@@ -129,32 +121,27 @@ const Header = (props) => {
             </>
           ) : (
             <div className={classes.headerOptions}>
+              <Button color="inherit" onClick={() => handleButtonClick("/")}>
+                Home
+              </Button>
               <Button
                 color="inherit"
                 onClick={() => handleButtonClick("/games")}
               >
-                TRAIN
+                Games
               </Button>
-              <Button color="inherit" onClick={() => handleButtonClick("/")}>
-                HOME
-              </Button>
-              <Button
-                color="inherit"
-                onClick={() => handleButtonClick("/about")}
-              >
-                ABOUT
-              </Button>
+
               <Button
                 color="inherit"
                 onClick={() => handleButtonClick("/sponsors")}
               >
-                SPONSORS
+                Become a Sponsor
               </Button>
               <Button
                 color="inherit"
                 onClick={() => handleButtonClick("/feedback")}
               >
-                FEEDBACK
+                Give us FEEDBACK
               </Button>
             </div>
           )}
