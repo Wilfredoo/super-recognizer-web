@@ -40,8 +40,8 @@ export default function Sponsors() {
           <h3 className="sponsor-type enthusiastText">Enthusiasts</h3>
           <img src="enthusiastB.png" className="enthusiast" />
         </div>
-        <p>Maria Farach (mom)</p>
-        <p>Wilfredo Casas (dad)</p>
+        <p>Maria Farach</p>
+        <p>Antonio Casas</p>
       </div>
       <div class="sponsors-container">
         <div className="sponsor-line">
