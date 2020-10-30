@@ -109,7 +109,7 @@ function RememberTheFace({
   });
 
   return (
-    <div className="container">
+    <div className="componentContainer">
       <h3>Remember the Face</h3>
       <h4>Level {level}</h4>
       {picArrayState && arrayOfPages[currentPage]}

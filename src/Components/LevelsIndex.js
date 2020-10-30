@@ -21,7 +21,7 @@ function LevelsIndex({
     "Michelle Obama",
   ];
   return (
-    <div className="container">
+    <div className="componentContainer">
       <h2>Levels</h2>
       {game !== "celebrity-match" ?
         levelsArray.map((level) => {
