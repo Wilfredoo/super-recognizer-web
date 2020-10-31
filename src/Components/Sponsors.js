@@ -11,7 +11,7 @@ export default function Sponsors() {
       </p>
       <p>
         If you'd like to sponsor this project, consider donating 5$, 10$ or 15$
-        a month via Patreon.
+        a month via Patreon:
       </p>
       <div className="sponsor-div">
         <img className="laurel-icon" src="laurel.png" />
