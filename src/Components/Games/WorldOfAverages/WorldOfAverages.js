@@ -75,8 +75,7 @@ export default function WorldOfAverages({
   });
   return (
       <div className="componentContainer">
-        <h3>World of Averages</h3>
-        <h4>Level {level}</h4>
+        <p>World of Averages - Level {level}</p>
         {picArrayState && arrayOfPages[currentPage]}
       </div>
   );

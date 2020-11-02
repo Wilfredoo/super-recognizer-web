@@ -96,8 +96,7 @@ export default function CelebrityMatch({
   });
   return (
       <div className="componentContainer">
-        <h3>Celebrity Match</h3>
-        <h4>Level {celebrity}</h4>
+        <p>Celebrity Match - Level {celebrity}</p>
         {picArrayState && arrayOfPages[currentPage]}
       </div>
   );

@@ -1,12 +1,14 @@
 import React from "react";
 import "firebase/firestore";
 import ScoreResult from "../../ScoreResult";
+import Button from "@material-ui/core/Button";
+import { Link } from "react-router-dom";
 
 export default function Page({
   game,
   answer,
   nextPage,
-  shuffle,
+  back,
   currentPage,
   celebrity,
   photoToShow,
@@ -21,15 +23,35 @@ export default function Page({
           {currentPage === 0 && (
             <>
               <div>
+                <div className="instruction-line">
+                  <img className="eye" src="/eye.png" />
+                  <p className="instructionText">
+                    {" "}
+                    This is the real {celebrity}
+                  </p>
+                </div>
+
                 <img className="photo" src={photoToShow.url} />
-                <p>This is the real {celebrity}</p>
                 <div className="buttonGroup">
-                  <button className="answerButton" onClick={() => nextPage()}>
-                    <p>Start</p>
-                  </button>
-                  <button className="answerButton" onClick={() => shuffle()}>
-                    <p>New Celebrity</p>
-                  </button>
+                  <Button
+                    style={{
+                      backgroundColor: "#206a5d",
+                      width: "150px",
+
+                      margin: "25px 0px",
+                      padding: "15px 25px",
+                      fontSize: "18px",
+                      color: "white",
+                    }}
+                    variant="contained"
+                    onClick={() => nextPage()}
+                  >
+                    Start
+                  </Button>
+                  <Link to="/levels/celebrity-match">
+                    {" "}
+                    <Button variant="contained">Back</Button>
+                  </Link>
                 </div>
               </div>
             </>
@@ -37,22 +59,48 @@ export default function Page({
           {currentPage >= 1 && currentPage <= 10 && (
             <>
               <div>
+                <div className="instruction-line">
+                  <img className="eye" src="/eye.png" />
+                  <p className="instructionText">
+                    {" "}
+                    Is this the real {celebrity}?
+                  </p>
+                </div>
+
                 <img className="photo" src={photoToShow.url} />
-                <p>Is this the real {celebrity}?</p>
-                {loading && correctAnswer === true && <p>Correct ✔</p>}
-                {loading && correctAnswer === false && <p>Incorrect X</p>}
+                {loading && correctAnswer === true && <p className="correct">Correct ✔</p>}
+                {loading && correctAnswer === false && <p className="incorrect">Incorrect X</p>}
                 {!loading && (
                   <div className="buttonGroup">
-                    <button className="answerButton"
+                    <Button
+                      style={{
+                        backgroundColor: "#206a5d",
+                        width: "150px",
+
+                        margin: "10px 0px",
+                        padding: "10px 25px",
+                        fontSize: "18px",
+                        color: "white",
+                      }}
+                      variant="contained"
                       onClick={() => answer("NO", photoToShow.rightAnswer)}
                     >
-                      <p>Yes</p>
-                    </button>
-                    <button className="answerButton"
+                      YES
+                    </Button>
+                    <Button
+                      style={{
+                        backgroundColor: "#bb2205",
+                        width: "150px",
+                        margin: "10px 0px",
+                        padding: "10px 25px",
+                        fontSize: "18px",
+                        color: "white",
+                      }}
+                      variant="contained"
                       onClick={() => answer("YES", photoToShow.rightAnswer)}
                     >
-                      <p>No</p>
-                    </button>
+                      NO
+                    </Button>
                   </div>
                 )}
               </div>

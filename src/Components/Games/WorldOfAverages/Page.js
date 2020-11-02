@@ -2,12 +2,11 @@ import React, { useState, useEffect } from "react";
 import "firebase/firestore";
 import ScoreResult from "../../ScoreResult";
 import shuffle from "../../../Helpers/shuffle";
+import Button from "@material-ui/core/Button";
 
 export default function Page({
-  loading,
   correctAnswer,
   game,
-  level,
   currentPage,
   personToShow,
   score,
@@ -33,50 +32,54 @@ export default function Page({
   return (
     <>
       <div>
+        <div className="instruction-line">
+          <img className="eye" src="/eye.png" />
+          <p className="instructionText">
+            {" "}
+            What's the ethnicity of this person?
+          </p>
+        </div>
         <>
           {currentPage < 10 && (
             <>
-              <div>
-                {level === "III" && (
+              <div className="flex">
+                <div>
                   <>
                     <img className="photo" src={personToShow.photo} />
                   </>
-                )}
-                {level !== "III" && (
-                  <>
-                    <img className="photo" src={personToShow.photo} />
-                  </>
-                )}
-                <p>What's the ethnicity of this person?</p>
+                </div>
+
                 <div className="buttonsWorld">
-                  {!loading &&
+                  {
                     shuffledButtonValues &&
                     shuffledButtonValues.map((data, index) => {
                       let typeAnswer = true;
                       if (data.key !== "rightAnswer") typeAnswer = false;
                       return (
                         <div key={index}>
-                          <button
-                            className="answerButton"
+                          <Button
+                            style={{
+                              margin: "7px",
+                            }}
+                            variant="contained"
                             onClick={() => answer(typeAnswer)}
                           >
-                            <p>{data.value}</p>
-                          </button>
+                            {data.value}
+                          </Button>
                         </div>
                       );
                     })}
-                  {loading && correctAnswer === true && <p>Correct ✔</p>}
-                  {loading && correctAnswer === false && (
-                    <>
-                      <p>Incorrect X{"\n"}</p>
-                    </>
-                  )}
-                  {loading && correctAnswer === false && (
-                    <>
-                      <p>Right Answer: {rightType}</p>
-                    </>
-                  )}
+                  
                 </div>
+                {correctAnswer === true && (
+                    <p className="correct">Correct ✔</p>
+                  )}
+                  {correctAnswer === false && (
+                    <>
+                      <p className="incorrect">Incorrect X</p>
+                      <p className="incorrect">Right Answer: {rightType}</p>
+                    </>
+                  )}
               </div>
             </>
           )}

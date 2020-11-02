@@ -1,11 +1,9 @@
 import React from "react";
 import "firebase/firestore";
 import ScoreResult from "../../ScoreResult";
-import Button from '@material-ui/core/Button';
-
+import Button from "@material-ui/core/Button";
 
 export default function Page({
-  game,
   answer,
   nextPage,
   level,
@@ -26,7 +24,10 @@ export default function Page({
               <div>
                 {level === "I" && (
                   <div className="instructions">
-                    <p>Remember this face</p>
+                    <div className="instruction-line">
+                      <img className="eye" src="/eye.png" />
+                      <p className="instructionText"> Remember this Face</p>
+                    </div>
                     <div>
                       <img className="photo" src={photoToShow.url} />
                     </div>
@@ -34,7 +35,7 @@ export default function Page({
                 )}
                 {level === "II" && (
                   <div className="instructions">
-                    <p>Remember these faces</p>
+                    <h3>Remember these faces</h3>
 
                     <img className="photo" src={photoToShow.url} />
 
@@ -44,7 +45,7 @@ export default function Page({
 
                 {level === "III" && (
                   <div className="instructions">
-                    <p>Remember these faces</p>
+                    <h3>Remember these faces</h3>
 
                     <img className="photo" src={photoToShow.url} />
 
@@ -52,14 +53,24 @@ export default function Page({
                   </div>
                 )}
                 <div className="buttonGroup">
-                <Button variant="contained">Default</Button>
+                  <Button
+                    style={{
+                      backgroundColor: "#206a5d",
+                      width: "150px",
 
-                  <button className="answerButton" onClick={() => nextPage()}>
-                    <p>Start</p>
-                  </button>
-                  <button className="answerButton" onClick={() => shuffle()}>
-                    <p>New Face</p>
-                  </button>
+                      margin: "25px 0px",
+                      padding: "15px 25px",
+                      fontSize: "18px",
+                      color: "white",
+                    }}
+                    variant="contained"
+                    onClick={() => nextPage()}
+                  >
+                    Start
+                  </Button>
+                  <Button variant="contained" onClick={() => shuffle()}>
+                    New Face
+                  </Button>
                 </div>
               </div>
             </>
@@ -71,23 +82,39 @@ export default function Page({
                 {level === "I" && <p>Is this the face you saw?</p>}
                 {level === "II" && <p>Is this one of the faces you saw?</p>}
 
-                {correctAnswer === true && <p>Correct ✔</p>}
-                {correctAnswer === false && <p>Incorrect X</p>}
+                {correctAnswer === true && <p className="correct">Correct ✔</p>}
+                {correctAnswer === false && <p className="incorrect">Incorrect X</p>}
                 {
                   <div className="buttonGroup">
-                    <button
-                      className="answerButton"
+                    <Button
+                      style={{
+                        backgroundColor: "#206a5d",
+                        width: "150px",
+
+                        margin: "10px 0px",
+                        padding: "10px 25px",
+                        fontSize: "18px",
+                        color: "white",
+                      }}
+                      variant="contained"
                       onClick={() => answer("YES", photoToShow.rightAnswer)}
                     >
-                      <p>Yes</p>
-                    </button>
-
-                    <button
-                      className="answerButton"
+                      YES
+                    </Button>
+                    <Button
+                      style={{
+                        backgroundColor: "#bb2205",
+                        width: "150px",
+                        margin: "10px 0px",
+                        padding: "10px 25px",
+                        fontSize: "18px",
+                        color: "white",
+                      }}
+                      variant="contained"
                       onClick={() => answer("NO", photoToShow.rightAnswer)}
                     >
-                      <p>No</p>
-                    </button>
+                      NO
+                    </Button>
                   </div>
                 }
               </div>

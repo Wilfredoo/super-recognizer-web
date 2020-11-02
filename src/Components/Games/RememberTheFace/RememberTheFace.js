@@ -53,6 +53,7 @@ function RememberTheFace({
       setNumberOfPages(15);
       imagesSnapshot = await nottinghamRef.get();
       imagesArray = await imagesSnapshot.docs;
+
       slicedShuffledMixedArray = await processImagesIII(imagesArray);
     }
     setPicArrayState(slicedShuffledMixedArray);
@@ -110,8 +111,8 @@ function RememberTheFace({
 
   return (
     <div className="componentContainer">
-      <h3>Remember the Face</h3>
-      <h4>Level {level}</h4>
+      <p>Remember the Face - level {level}</p>
+      {/* <h4>Level {level}</h4> */}
       {picArrayState && arrayOfPages[currentPage]}
     </div>
   );

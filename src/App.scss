@@ -5,15 +5,16 @@
 }
 
 body {
-  font-family: 'Source Sans Pro', sans-serif;
-
+  font-family: "Source Sans Pro", sans-serif;
 }
 
 .app {
   flex: 1;
-
 }
 
+.error {
+  color: red;
+}
 
 .train {
   font-size: 50px;
@@ -21,7 +22,6 @@ body {
 
 p {
   font-size: 20px;
-
 }
 
 .footerText {
@@ -47,7 +47,14 @@ p {
 .levels,
 .games,
 .scoreLine {
-  margin: 32px;
+  margin: 25px 0;
+}
+
+.celebrity-levels {
+  margin: 6px;
+}
+.instructionText {
+  font-weight: bold;
 }
 
 .games {
@@ -98,9 +105,10 @@ a:hover {
 }
 
 .super {
-  height: 60px;
+  height: 70px;
   margin-bottom: -10px;
   margin-left: -10px;
+  padding: 7px 0;
 }
 
 form {
@@ -112,7 +120,7 @@ form {
 input,
 textarea {
   width: 400px;
-  margin: 5px;
+  margin-top: 10px;
   height: 30px;
 }
 
@@ -128,11 +136,10 @@ textarea {
   padding: 50px;
 }
 
-.textContainer, p {
+.textContainer,
+p {
   line-height: 40px;
 }
-
-
 
 .btn {
   box-sizing: border-box;
@@ -164,7 +171,7 @@ button:focus {
   color: #fff;
   background: #0278ae;
   border-color: #0278ae;
-  background-image: linear-gradient(45deg, #f4abc4 50%, transparent 50%);
+  background-image: linear-gradient(45deg, #c4fb6d 50%, transparent 50%);
   background-position: 100%;
   background-size: 400%;
   transition: 300ms ease-in-out;
@@ -174,16 +181,63 @@ button:focus {
   margin-right: 16px;
 }
 
+.eye {
+  height: 20px;
+  margin-right: 12px;
+}
+
+
+.feedback-title {
+  margin-top: 50px;
+}
+.instruction-line {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.correct {
+  color: blue;
+  text-transform: uppercase;
+}
+
+.incorrect {
+  color: red;
+  text-transform: uppercase;
+}
+
 @media screen and (max-width: 992px) {
+  .celebrity-levels {
+    margin: 0px;
+    line-height: 1;
+  }
+  .levels,
+.games,
+.scoreLine {
+  line-height: 0px;
+}
+
+  .super {
+    height: 50px;
+    padding: 3px 0;
+  }
+  form,
+  input,
+  textarea {
+    width: 100%;
+  }
+
   a:link {
     margin-left: -20px;
     margin-right: -20px;
-}
+  }
   .train {
     font-size: 45px;
     line-height: 60px;
-}
-p {font-size: 18px;}
+  }
+  p {
+    font-size: 18px;
+  }
   .footerText {
     font-size: 12px;
   }
@@ -222,6 +276,7 @@ button {
   text-decoration: none;
   font-size: inherit;
   font-family: inherit;
+  // if (name !== null || email !== null || feedback !== null) return setEmpty(false)
   &.sponsor-button {
     font-weight: 600;
     color: $text;
@@ -270,7 +325,7 @@ button {
 
 .current-sponsors {
   padding-top: 30px;
-  margin:0 20px
+  margin: 0 20px;
 }
 .sponsor-div {
   display: flex;
@@ -287,7 +342,6 @@ button {
   align-items: flex-end;
   text-align: center;
   margin-top: 35px;
-
 }
 
 .current-sponsors-line {
@@ -297,9 +351,7 @@ button {
   border-bottom: 2px solid black;
   padding-bottom: 12px;
   margin-bottom: 20px;
-
 }
-
 
 .laurel-icon {
   height: 80px;

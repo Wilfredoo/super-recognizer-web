@@ -22,7 +22,7 @@ function LevelsIndex({
   ];
   return (
     <div className="componentContainer">
-      <h2>Levels</h2>
+      <h3>Levels</h3>
       {game !== "celebrity-match" ?
         levelsArray.map((level) => {
           return (
@@ -36,7 +36,7 @@ function LevelsIndex({
           return (
             <div>
               <Link to={`/game/${game}/${celebrity}`}>
-                <p className="levels">{celebrity}</p>
+                <p className="celebrity-levels">{celebrity}</p>
               </Link>
             </div>
           );

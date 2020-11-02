@@ -4,7 +4,7 @@ import "../App.scss";
 export default function Sponsors() {
   return (
     <div className="componentContainer">
-      <h2>Excited about this project?</h2>
+      <h2 className="feedback-title">Excited about this project?</h2>
       <p>
         This project is funded with personal money (which is not that much) and
         those of my sponsors.

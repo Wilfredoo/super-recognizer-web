@@ -19,6 +19,9 @@ const useInput = (initialValue) => {
 
 export default function Feedback() {
   const store = firebase.firestore();
+  const [success, setSuccess] = useState(false);
+  const [empty, setEmpty] = useState(false);
+
   const { value: name, bind: bindName, reset: resetName } = useInput("");
   const { value: email, bind: bindEmail, reset: resetEmail } = useInput("");
   const {
@@ -29,17 +32,23 @@ export default function Feedback() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("values", name, email, feedback);
+    if (name === "" || email === "" || feedback === "")
+      return setEmpty(true), setSuccess(false);
+    setEmpty(false);
+    store
+      .collection("feedback")
+      .add({
+        name,
+        email,
+        feedback,
+      })
+      .then(() => {
+        resetName();
+        resetEmail();
+        resetFeedback();
 
-    // if (name === "" || feedback === "") return setError("empty");
-    store.collection("feedback").add({
-      name,
-      email,
-      feedback,
-    });
-    resetName();
-    resetEmail();
-    resetFeedback();
+        setSuccess(true);
+      });
   };
 
   return (
@@ -47,7 +56,6 @@ export default function Feedback() {
       <h2>Leave your feedback here</h2>
       <p>Idea for a new game? Something you didn't like? Found an error?</p>
       <p> This is the place to say it.</p>
-      <p>Your feedback will be read directly by me (Wilfredo).</p>
       <form onSubmit={handleSubmit}>
         <input placeholder="Name" type="text" {...bindName} />
         <input placeholder="Email" type="email" {...bindEmail} />
@@ -58,12 +66,9 @@ export default function Feedback() {
           {...bindFeedback}
         />
         <input type="submit" value="Submit" />
-        {empty && <p>Empty feedback huh?</p>}
-        {sent && (
-          <p>
-            Your feedback has been sent. I'll read it and will get back to you
-            soon.
-          </p>
+        {empty && <p className="error">Empty feedback? 🤔</p>}
+        {success && (
+          <p>Your feedback has been sent ⚡ Wilfredo will read it soon.</p>
         )}
       </form>
     </div>
