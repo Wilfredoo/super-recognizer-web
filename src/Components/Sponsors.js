@@ -4,6 +4,34 @@ import "../App.scss";
 export default function Sponsors() {
   return (
     <div className="componentContainer">
+      <h2 className="feedback-title">I love doing this!</h2>
+      <p>
+        But it's hard work and it takes time to upload all these faces ya'll
+        playing with.
+      </p>
+      <p>
+        So far I'm funding this project with personal money (which is not that
+        much) and those of my sponsors.
+      </p>
+      <p>
+        If you'd like to sponsor me though... it's easy as ABC; just go to{" "}
+        <a target="_blank" href="https://www.patreon.com/super_recogniser">
+          <span className="patreon-link">my Patreon page</span>
+        </a>{" "}
+        and choose the plan you prefer (5$, 10$ or 15$ per month).
+      </p>
+      <p>You can also click on this beautiful button — it's worth it.</p>
+      <div className="sponsor-div">
+        <img className="laurel-icon" src="laurel.png" />
+        <a href="https://www.patreon.com/super_recogniser" target="_blank">
+          <button class="sponsor-button">Sponsor</button>
+        </a>
+        <img className="laurel-icon" src="laurel.png" />
+      </div>
+
+      <p>Much appreciated!</p>
+      <p>- Wilfredo</p>
+      <p>...</p>
       <div className="current-sponsors-div">
         <div className="current-sponsors-line">
           <img className="torch-icon" src="torch.png" />
@@ -48,34 +76,7 @@ export default function Sponsors() {
           </a>
         </p>
       </div>
-      <p>...</p>
-      <h2 className="feedback-title">I love doing this!</h2>
-      <p>
-        But it's hard work and it takes time to upload all these faces ya'll
-        playing with.
-      </p>
-      <p>
-        So far I'm funding this project with personal money (which is not that
-        much) and those of my sponsors.
-      </p>
-      <p>
-        If you'd like to sponsor me though... it's easy as ABC; just go to{" "}
-        <a target="_blank" href="https://www.patreon.com/super_recogniser">
-          <span className="patreon-link">my Patreon page</span>
-        </a>{" "}
-        and choose the plan you prefer (5$, 10$ or 15$ per month).
-      </p>
-      <p>You can also click on this beautiful button — it's worth it.</p>
-      <div className="sponsor-div">
-        <img className="laurel-icon" src="laurel.png" />
-        <a href="https://www.patreon.com/super_recogniser" target="_blank">
-          <button class="sponsor-button">Sponsor</button>
-        </a>
-        <img className="laurel-icon" src="laurel.png" />
-      </div>
-
-      <p>Much appreciated!</p>
-      <p>- Wilfredo</p>
+      
     </div>
   );
 }
