@@ -46,15 +46,6 @@ export default function Page({
                   </div>
                 )}
 
-                {/* {level === "III" && (
-                  <div className="instructions">
-                    <h3>Remember these faces</h3>
-
-                    <img className="photo" src={photoToShow.url} />
-
-                    <img className="photo" src={photoToShow2.url} />
-                  </div>
-                )} */}
                 <div className="buttonGroup">
                   <Button
                     style={{
