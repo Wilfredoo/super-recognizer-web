@@ -28,11 +28,8 @@ export default function Sponsors() {
         </a>
         <img className="laurel-icon" src="laurel.png" />
       </div>
-      <p>
-        That way I can work on it more time and make it much better than it is
-        right now.
-      </p>
-      <p>Thanks!</p>
+
+      <p>Much appreciated!</p>
       <p>- Wilfredo</p>
 
       <p>...</p>
