@@ -78,12 +78,21 @@ export default function Page({
           {currentPage >= 1 && currentPage <= numberOfPages && (
             <>
               <div>
+                <div className="instruction-line">
+                  <img className="eye" src="/eye.png" />
+                  {level === "I" && <p className="instructionText">Is this the face you saw?</p>}
+                  {level === "II" ||
+                    (level === "III" && (
+                      <p className="instructionText">Is this one of the faces you saw?</p>
+                    ))}
+                </div>
+
                 <img className="photo" src={photoToShow.url} />
-                {level === "I" && <p>Is this the face you saw?</p>}
-                {level === "II" && <p>Is this one of the faces you saw?</p>}
 
                 {correctAnswer === true && <p className="correct">Correct ✔</p>}
-                {correctAnswer === false && <p className="incorrect">Incorrect X</p>}
+                {correctAnswer === false && (
+                  <p className="incorrect">Incorrect X</p>
+                )}
                 {
                   <div className="buttonGroup">
                     <Button

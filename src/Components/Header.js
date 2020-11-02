@@ -63,15 +63,16 @@ const Header = (props) => {
       menuTitle: "Games",
       pageURL: "/games",
     },
-
-    {
-      menuTitle: "Become a Sponsor",
-      pageURL: "/sponsors",
-    },
     {
       menuTitle: "Feedback",
       pageURL: "/feedback",
     },
+
+    {
+      menuTitle: "Give me 5$",
+      pageURL: "/sponsors",
+    },
+  
   ];
 
   return (
@@ -130,19 +131,19 @@ const Header = (props) => {
               >
                 Games
               </Button>
-
-              <Button
-                color="inherit"
-                onClick={() => handleButtonClick("/sponsors")}
-              >
-                Become a Sponsor
-              </Button>
               <Button
                 color="inherit"
                 onClick={() => handleButtonClick("/feedback")}
               >
-                Give us FEEDBACK
+                FEEDBACK
               </Button>
+              <Button
+                color="inherit"
+                onClick={() => handleButtonClick("/sponsors")}
+              >
+                Give me 5$
+              </Button>
+              
             </div>
           )}
         </Toolbar>
