@@ -33,9 +33,12 @@ export default function Page({
                     </div>
                   </div>
                 )}
-                {level === "II" && (
+                {(level === "II" || level === "III") && (
                   <div className="instructions">
-                    <h3>Remember these faces</h3>
+                    <div className="instruction-line">
+                      <img className="eye" src="/eye.png" />
+                      <p className="instructionText"> Remember these Faces</p>
+                    </div>
 
                     <img className="photo" src={photoToShow.url} />
 
@@ -43,7 +46,7 @@ export default function Page({
                   </div>
                 )}
 
-                {level === "III" && (
+                {/* {level === "III" && (
                   <div className="instructions">
                     <h3>Remember these faces</h3>
 
@@ -51,7 +54,7 @@ export default function Page({
 
                     <img className="photo" src={photoToShow2.url} />
                   </div>
-                )}
+                )} */}
                 <div className="buttonGroup">
                   <Button
                     style={{
@@ -80,11 +83,14 @@ export default function Page({
               <div>
                 <div className="instruction-line">
                   <img className="eye" src="/eye.png" />
-                  {level === "I" && <p className="instructionText">Is this the face you saw?</p>}
-                  {level === "II" ||
-                    (level === "III" && (
-                      <p className="instructionText">Is this one of the faces you saw?</p>
-                    ))}
+                  {level === "I" && (
+                    <p className="instructionText">Is this the face you saw?</p>
+                  )}
+                  {(level === "II" || level === "III") && (
+                    <p className="instructionText">
+                      Is this one of the faces you saw?
+                    </p>
+                  )}
                 </div>
 
                 <img className="photo" src={photoToShow.url} />

@@ -186,7 +186,6 @@ button:focus {
   margin-right: 12px;
 }
 
-
 .feedback-title {
   margin-top: 50px;
 }
@@ -201,25 +200,29 @@ button:focus {
   text-transform: uppercase;
 }
 
+.squeezed {
+  margin: 5px;
+}
+
 .incorrect {
   color: red;
   text-transform: uppercase;
 }
 
 .patreon-link {
-  color: #0278ae
+  color: #0278ae;
 }
 
 @media screen and (max-width: 992px) {
   .celebrity-levels {
     margin: 0px;
-    line-height: 1;
+    // line-height: 15px;
   }
   .levels,
-.games,
-.scoreLine {
-  line-height: 0px;
-}
+  .games,
+  .scoreLine {
+    line-height: 15px;
+  }
 
   .super {
     height: 50px;
@@ -232,8 +235,8 @@ button:focus {
   }
 
   a:link {
-    margin-left: -20px;
-    margin-right: -20px;
+    // margin-left: -20px;
+    // margin-right: -20px;
   }
   .train {
     font-size: 45px;

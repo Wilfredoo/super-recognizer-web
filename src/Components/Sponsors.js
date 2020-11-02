@@ -44,7 +44,7 @@ export default function Sponsors() {
         <p>
           ...no champions yet.{" "}
           <a href="https://www.patreon.com/super_recogniser" target="_blank">
-            <span> Be a champion?</span>
+            <span className="squeezed"> Be a champion?</span>
           </a>
         </p>
       </div>
