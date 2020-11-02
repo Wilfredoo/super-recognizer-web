@@ -111,6 +111,10 @@ a:hover {
   padding: 7px 0;
 }
 
+.homeText {
+  line-height: 55px;
+}
+
 form {
   display: flex;
   flex-direction: column;
@@ -214,6 +218,10 @@ button:focus {
 }
 
 @media screen and (max-width: 992px) {
+  .playing {
+    margin-bottom: 50px;
+  }
+
   .celebrity-levels {
     margin: 0px;
     // line-height: 15px;

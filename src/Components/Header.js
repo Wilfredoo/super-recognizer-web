@@ -9,7 +9,7 @@ import MenuItem from "@material-ui/core/MenuItem";
 import Menu from "@material-ui/core/Menu";
 import Button from "@material-ui/core/Button";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
-import { withRouter } from "react-router-dom";
+import { withRouter, Link } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -79,11 +79,13 @@ const Header = (props) => {
     <div className={classes.root}>
       <AppBar position="static" style={{ background: "#0278ae" }}>
         <Toolbar>
+          <Link to="/">
           <Button color="inherit">
             <div className="superDiv">
               <img className="super" src="/super.png" />
             </div>
           </Button>
+          </Link>
           {isMobile ? (
             <>
               <IconButton
