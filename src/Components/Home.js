@@ -5,8 +5,8 @@ export default function Home() {
   return (
     <div className="componentContainer">
       <div className="textContainer">
-        {/* <img src="super.png" className="logo" /> */}
-        <h1>Train your Facial Recognition Skills</h1>
+        {/* <img src="train.png" className="logo" /> */}
+        <h1 className="train">TRAIN YOUR FACE RECOGNITION SKILLS</h1>
         <p>
           Super Recognizer is a collection of games based on scientific research
           that will help you improve your face recognitions skills.

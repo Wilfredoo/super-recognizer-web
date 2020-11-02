@@ -4,12 +4,24 @@
   flex-direction: column;
 }
 
-.app {
-  flex: 1;
+body {
+  font-family: 'Source Sans Pro', sans-serif;
+
 }
 
-.logo {
-  height: 300px;
+.app {
+  flex: 1;
+
+}
+
+
+.train {
+  font-size: 50px;
+}
+
+p {
+  font-size: 20px;
+
 }
 
 .footerText {
@@ -36,6 +48,10 @@
 .games,
 .scoreLine {
   margin: 32px;
+}
+
+.games {
+  text-transform: uppercase;
 }
 
 .photo {
@@ -159,10 +175,15 @@ button:focus {
 }
 
 @media screen and (max-width: 992px) {
-  .logo {
-    width: 100%;
-    height: auto;    
-  }
+  a:link {
+    margin-left: -20px;
+    margin-right: -20px;
+}
+  .train {
+    font-size: 45px;
+    line-height: 60px;
+}
+p {font-size: 18px;}
   .footerText {
     font-size: 12px;
   }
@@ -264,8 +285,8 @@ button {
 .sponsor-line {
   display: flex;
   align-items: flex-end;
-  margin: 50px;
   text-align: center;
+  margin-top: 35px;
 
 }
 
@@ -275,6 +296,7 @@ button {
   text-align: center;
   border-bottom: 2px solid black;
   padding-bottom: 12px;
+  margin-bottom: 20px;
 
 }
 

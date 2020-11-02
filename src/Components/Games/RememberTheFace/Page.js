@@ -1,6 +1,8 @@
 import React from "react";
 import "firebase/firestore";
 import ScoreResult from "../../ScoreResult";
+import Button from '@material-ui/core/Button';
+
 
 export default function Page({
   game,
@@ -50,6 +52,8 @@ export default function Page({
                   </div>
                 )}
                 <div className="buttonGroup">
+                <Button variant="contained">Default</Button>
+
                   <button className="answerButton" onClick={() => nextPage()}>
                     <p>Start</p>
                   </button>
