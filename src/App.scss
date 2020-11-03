@@ -57,6 +57,13 @@ p {
   font-weight: bold;
 }
 
+.disclaimer {
+  font-style: italic;
+  max-width: 60%;
+  text-align: justify;
+
+}
+
 .games {
   text-transform: uppercase;
 }
@@ -220,6 +227,10 @@ button:focus {
 }
 
 @media screen and (max-width: 992px) {
+  .disclaimer {
+    max-width: 90%;
+  
+  }
   .playing {
     margin-bottom: 50px;
   }
