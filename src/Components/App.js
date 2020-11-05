@@ -11,6 +11,7 @@ import Sponsors from "./Sponsors";
 import Feedback from "./Feedback";
 import Header from "./Header";
 import Footer from "./Footer";
+import Research from "./Research";
 import { Route, Switch, BrowserRouter as Router } from "react-router-dom";
 import HttpsRedirect from "react-https-redirect";
 
@@ -42,6 +43,11 @@ export default function App() {
               path="/feedback"
               render={(props) => <Feedback {...props} />}
             />
+            <Route
+              path="/research"
+              component={Research}
+              exact={true}
+            />
             <Route path="/levels/:game" component={LevelsIndex} exact={true} />
             <Route
               path="/game/celebrity-match/:celebrity"
@@ -58,6 +64,7 @@ export default function App() {
               component={WorldOfAverages}
               exact={true}
             />
+          
           </Switch>
         </div>
         <Footer />

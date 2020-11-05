@@ -16,7 +16,7 @@ export default function Sponsors() {
       <p>
         If you'd like to sponsor me though... it's easy as ABC; just go to{" "}
         <a target="_blank" href="https://www.patreon.com/super_recogniser">
-          <span className="patreon-link">my Patreon page</span>
+          <span className="link">my Patreon page</span>
         </a>{" "}
         and choose the plan you prefer (5$, 10$ or 15$ per month).
       </p>

@@ -2,7 +2,6 @@ import React from "react";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
-import Typography from "@material-ui/core/Typography";
 import IconButton from "@material-ui/core/IconButton";
 import MenuIcon from "@material-ui/icons/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
@@ -67,14 +66,15 @@ const Header = (props) => {
       menuTitle: "Feedback",
       pageURL: "/feedback",
     },
-
+    {
+      menuTitle: "Research",
+      pageURL: "/research",
+    },
     {
       menuTitle: "Give me 5$",
       pageURL: "/sponsors",
     },
-  
   ];
-
   return (
     <div className={classes.root}>
       <AppBar position="static" style={{ background: "#0278ae" }}>
@@ -135,9 +135,15 @@ const Header = (props) => {
               </Button>
               <Button
                 color="inherit"
+                onClick={() => handleButtonClick("/research")}
+              >
+                Research
+              </Button>
+              <Button
+                color="inherit"
                 onClick={() => handleButtonClick("/feedback")}
               >
-                FEEDBACK
+                Feedback
               </Button>
               <Button
                 color="inherit"
@@ -145,7 +151,6 @@ const Header = (props) => {
               >
                 Give me 5$
               </Button>
-              
             </div>
           )}
         </Toolbar>

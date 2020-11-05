@@ -61,17 +61,19 @@ function LevelsIndex({
 							</div>
 						);
 				  })}
-			<p>...</p>
 			{game === 'world-of-averages' && (
-				<p className="disclaimer">
-					{' '}
-					DISCLAIMER: this game does not intend to offend anyone or promote any kind of discrimination (I am
-					part of a minority group myself). The photos are just averages from a relatively small sample of
-					people of each country and the sole purpose of this game is training. I take personal responsability
-					for anyone that I may offend with this game.
-				</p>
+				<>
+					<p>...</p>
+					<p className="disclaimer">
+						{' '}
+						DISCLAIMER: this game does not intend to offend anyone or promote any kind of discrimination (I
+						am part of a minority group myself). The photos are just averages from a relatively small sample
+						of people of each country and the sole purpose of this game is training. I take personal
+						responsability for anyone that I may offend with this game.
+					</p>
+					<p>...</p>
+				</>
 			)}
-			<p>...</p>
 		</div>
 	);
 }
