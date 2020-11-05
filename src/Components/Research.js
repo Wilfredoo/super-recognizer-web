@@ -30,13 +30,13 @@ const content = [
 		link: 'https://www.frontiersin.org/articles/10.3389/fnhum.2014.00491/full',
 	},
 	{
-		title: 'Holistic face training enhances face processing in developmental prosopagnosia',
+		title: 'Holistic face training enhances face processing in developmental...',
 		preview:
 			'Prosopagnosia has largely been regarded as an untreatable disorder. However, recent case studies using cognitive training have shown...',
 		link: 'https://pubmed.ncbi.nlm.nih.gov/24691394/',
 	},
 	{
-		title: 'Face processing improvements in prosopagnosia: successes and...',
+		title: 'Face processing improvements in prosopagnosia: successes and failures.',
 		preview:
 			'Clinicians and researchers have widely believed that face processing cannot be improved in prosopagnosia. Though more than a dozen reported studies ',
 		link: 'https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4122168/',
@@ -49,7 +49,7 @@ const content = [
 		link: 'https://www.tandfonline.com/doi/abs/10.1080/02643290802299350',
 	},
 	{
-		title: 'Training face perception in developmental prosopagnosia through perceptual learning',
+		title: 'Training face perception in developmental prosopagnosia through...',
 		preview:
 			'Recent work has shown that perceptual learning can improve face discrimination in subjects with acquired prosopagnosia.			',
 		link: 'https://www.sciencedirect.com/science/article/abs/pii/S0028393219302386',
