@@ -153,6 +153,18 @@ p {
 	line-height: 40px;
 }
 
+.authButtons {
+	display: flex;
+	position: absolute;
+	right: 25px;
+	top:10vh;
+}
+
+.authButton {
+margin : 0 8px;
+
+}
+
 .btn {
 	box-sizing: border-box;
 	appearance: none;
@@ -387,11 +399,11 @@ button {
 }
 
 .research-title {
-  text-align: center;
+	text-align: center;
 	margin-top: 50px;
-  margin-bottom: 50px;
-  font-size: 20px;
-  font-weight: bold;
+	margin-bottom: 50px;
+	font-size: 20px;
+	font-weight: bold;
 }
 
 .laurel-icon {

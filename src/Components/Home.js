@@ -1,11 +1,33 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import fire from './Auth/base';
+import { AuthContext } from './Auth/Auth';
 
-export default function Home() {
+const Home = () => {
+	const { currentUser } = useContext(AuthContext);
 	return (
 		<div className="componentContainer">
+			{console.log('current user is there?', currentUser)}
+			<div className="authButtons">
+				{!currentUser && (
+					<Link to="/signup">
+						<button className="authButton">Sign Up</button>
+					</Link>
+				)}
+				{!currentUser && (
+					<Link to="/login">
+						<button className="authButton">Log In</button>
+					</Link>
+				)}
+			{currentUser && <p className="authButton"> {currentUser.email}</p>}
+
+				{currentUser && (
+					<button className="authButton" onClick={() => fire.auth().signOut()}>
+						Sign Out
+					</button>
+				)}
+			</div>
 			<div className="textContainer">
-				{/* <img src="train.png" className="logo" /> */}
 				<h1 className="train">TRAIN YOUR FACE RECOGNITION SKILLS</h1>
 				<p className="homeText">
 					Super Recognizer is a collection of games based on scientific research that will help you improve
@@ -15,7 +37,7 @@ export default function Home() {
 					{' '}
 					If you have{' '}
 					<a href="https://en.wikipedia.org/wiki/Prosopagnosia" target="_blank">
-					<span className="link">	prosopagnosia</span>
+						<span className="link"> prosopagnosia</span>
 					</a>
 					, you are a{' '}
 					<a href="https://en.wikipedia.org/wiki/Super_recogniser" target="_blank">
@@ -29,4 +51,6 @@ export default function Home() {
 			</div>
 		</div>
 	);
-}
+};
+
+export default Home;
