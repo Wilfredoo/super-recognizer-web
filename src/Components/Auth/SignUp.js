@@ -1,15 +1,33 @@
-import React,{ useCallback } from 'react';
+import React, { useCallback } from 'react';
 import '../../App.scss';
 import fire from './base';
 import { withRouter } from 'react-router';
+import * as firebase from 'firebase';
 
 const SignUp = ({ history }) => {
+	const saveUser = async (name, email, password, uid) => {
+		return firebase.firestore().collection('users').doc(uid).set({
+			name,
+			email,
+			password,
+			uid,
+		});
+	};
+
+	const updateProfile = (userCredentials, displayName) => {
+		return userCredentials.user.updateProfile({
+			displayName,
+		});
+	};
+
 	const handleSignUp = useCallback(
 		async (event) => {
 			event.preventDefault();
-			const { email, password } = event.target.elements;
+			const { name, email, password } = event.target.elements;
 			try {
-				await fire.auth().createUserWithEmailAndPassword(email.value, password.value);
+				const credentials = await fire.auth().createUserWithEmailAndPassword(email.value, password.value);
+				await saveUser(name.value, email.value, password.value, credentials.user.uid);
+				updateProfile(credentials, name.value);
 				history.push('/');
 			} catch (error) {
 				alert(error);
@@ -20,8 +38,12 @@ const SignUp = ({ history }) => {
 
 	return (
 		<div className="App">
-			<h1>Sign Up</h1>
+			<h1>New in Town?</h1>
 			<form onSubmit={handleSignUp}>
+				<label>
+					Name
+					<input name="name" type="name" placeholder="Name" />
+				</label>
 				<label>
 					Email
 					<input name="email" type="email" placeholder="Email" />
