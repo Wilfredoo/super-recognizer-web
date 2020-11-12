@@ -1,8 +1,10 @@
-import React, { useCallback } from 'react';
+import React, { useCallback, useContext } from 'react';
 import '../../App.scss';
 import fire from './base';
-import { withRouter } from 'react-router';
+import { Redirect, withRouter } from 'react-router';
 import * as firebase from 'firebase';
+import { AuthContext } from './Auth';
+
 
 const SignUp = ({ history }) => {
 	const saveUser = async (name, email, password, uid) => {
@@ -13,6 +15,9 @@ const SignUp = ({ history }) => {
 			uid,
 		});
 	};
+
+	const { currentUser } = useContext(AuthContext);
+
 
 	const updateProfile = (userCredentials, displayName) => {
 		return userCredentials.user.updateProfile({
@@ -35,6 +40,10 @@ const SignUp = ({ history }) => {
 		},
 		[history]
 	);
+
+	if (currentUser) {
+		return <Redirect to="/" />;
+	}
 
 	return (
 		<div className="App">

@@ -1,12 +1,14 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import '../App.scss';
+import { AuthContext } from './Auth/Auth';
 
 function LevelsIndex({
 	match: {
 		params: { game },
 	},
 }) {
+	const { currentUser } = useContext(AuthContext);
 	const levelsArray = ['I', 'II', 'III'];
 	const celebrities = [
 		'Trump',
@@ -22,6 +24,7 @@ function LevelsIndex({
 	];
 	return (
 		<div className="componentContainer">
+			{console.log('current user in levels', currentUser)}
 			{game === 'celebrity-match' && (
 				<>
 					<h3>Celebrity Match</h3>
@@ -34,7 +37,6 @@ function LevelsIndex({
 					<p>You'll be shown faces of strangers. Can you remember them correctly?</p>
 				</>
 			)}
-
 			{game === 'world-of-averages' && (
 				<>
 					<h3>World of Averages</h3>
@@ -46,8 +48,8 @@ function LevelsIndex({
 				? levelsArray.map((level) => {
 						return (
 							<div>
-								<Link to={`/game/${game}/${level}`}>
-									<p className="levels">Level {level}</p>
+								<Link to={!currentUser && level !== 'I' ? `#` : `/game/${game}/${level}`}>
+									<p className={!currentUser && level !== 'I' ? `levels disabled` : `levels`}>Level {level}</p>
 								</Link>
 							</div>
 						);
