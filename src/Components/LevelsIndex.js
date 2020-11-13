@@ -1,7 +1,8 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import '../App.scss';
 import { AuthContext } from './Auth/Auth';
+import * as firebase from 'firebase';
 
 function LevelsIndex({
 	match: {
@@ -9,7 +10,7 @@ function LevelsIndex({
 	},
 }) {
 	const { currentUser } = useContext(AuthContext);
-	const levelsArray = ['I', 'II', 'III'];
+	const levelsArray = [1, 2, 3];
 	const celebrities = [
 		'Trump',
 		'Shakira',
@@ -22,6 +23,30 @@ function LevelsIndex({
 		'Lili Reinhart',
 		'Michelle Obama',
 	];
+	const [lastMaxScore, setLastMaxScore] = useState(null)
+	const store = firebase.firestore()
+	useEffect(() => {
+		getLastMaxScore()
+	})
+
+	const roundsRef = store.collection("rounds")
+	const getLastMaxScore = async () => {
+		const roundsSnapshot = await roundsRef
+		// .where("name", "==", celebrity)
+		// .where("real", "==", false)
+		.get();
+
+		await roundsSnapshot.docs.forEach((docSnapshot) => {
+		  console.log(docSnapshot.data())
+		});
+	
+	}
+
+
+
+
+
+
 	return (
 		<div className="componentContainer">
 			{game === 'celebrity-match' && (
@@ -47,8 +72,8 @@ function LevelsIndex({
 				? levelsArray.map((level) => {
 						return (
 							<div>
-								<Link to={!currentUser && level !== 'I' ? `#` : `/game/${game}/${level}`}>
-									<p className={!currentUser && level !== 'I' ? `levels disabled` : `levels`}>
+								<Link to={level === 1 || currentUser && (lastMaxScore > (10 * level - 3)) ? `/game/${game}/${level}` : `#`}>
+									<p className={level === 1 || currentUser && (lastMaxScore > (10 * level - 3)) ? `levels` : `levels disabled`}>
 										Level {level}
 									</p>
 								</Link>

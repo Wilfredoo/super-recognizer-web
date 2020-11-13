@@ -1,7 +1,7 @@
 import shuffle from "./shuffle"
 
-
 const processImages = async (imagesArray) => {
+  console.log("process images called")
     const rightAnswerArrayIndex = await Math.floor(
       Math.random() * imagesArray.length
     );
@@ -41,6 +41,7 @@ const processImages = async (imagesArray) => {
     const shuffledMixedArray = shuffle(mixedArray); //2nd shuffle: shuffling mixed array
     const slicedShuffledMixedArray = shuffledMixedArray.slice(0, 10); // let cut it again
     slicedShuffledMixedArray.unshift(oneRandomTruePic); // add the truthie at the beginning
+    console.log("final result in process", slicedShuffledMixedArray)
     return slicedShuffledMixedArray
   };
 
