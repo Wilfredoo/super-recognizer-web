@@ -16,6 +16,7 @@ export default function ScoreResult({ game, score, totalQuestions }) {
 	// 		maxLevel,
 	// 	});
 	// }
+	//hello
 
 	const next = () => {
 		setOpenModal(true);
