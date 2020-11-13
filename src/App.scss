@@ -52,11 +52,29 @@ p {
 
 .disabled {
 	color: gray;
+	// display: none;
 }
 
 .coming-soon {
 	font-size: 15px;
 	margin:-30px;
+}
+
+.coming-soon-b {
+	font-size: 15px;
+	margin-top:-20px;
+}
+
+.email, .colored {
+	color: #0278ae
+}
+
+.important {
+	text-decoration: underline;
+}
+
+.pls-login {
+	font-style: italic;
 }
 
 .celebrity-levels {
@@ -130,6 +148,10 @@ a:hover {
 
 .homeText {
 	line-height: 55px;
+}
+
+.text {
+	line-height: 35px;
 }
 
 form {

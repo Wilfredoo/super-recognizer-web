@@ -7,7 +7,6 @@ const Home = () => {
 	const { currentUser } = useContext(AuthContext);
 	return (
 		<div className="componentContainer">
-			{console.log('current user is there?', currentUser)}
 			<div className="authButtons">
 				{!currentUser && (
 					<Link to="/signup">

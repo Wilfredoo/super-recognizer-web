@@ -46,7 +46,6 @@ export default function Feedback() {
         resetName();
         resetEmail();
         resetFeedback();
-
         setSuccess(true);
       });
   };
@@ -66,6 +65,8 @@ export default function Feedback() {
           {...bindFeedback}
         />
         <input type="submit" value="Submit" />
+        <p>If you prefer, you can also just send an email to <span className="email">me@wilfredocasas.com</span></p>
+
         {empty && <p className="error">Empty feedback? 🤔</p>}
         {success && (
           <p>Your feedback has been sent ⚡ Wilfredo will read it soon.</p>

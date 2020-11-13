@@ -24,7 +24,6 @@ function LevelsIndex({
 	];
 	return (
 		<div className="componentContainer">
-			{console.log('current user in levels', currentUser)}
 			{game === 'celebrity-match' && (
 				<>
 					<h3>Celebrity Match</h3>
@@ -49,7 +48,9 @@ function LevelsIndex({
 						return (
 							<div>
 								<Link to={!currentUser && level !== 'I' ? `#` : `/game/${game}/${level}`}>
-									<p className={!currentUser && level !== 'I' ? `levels disabled` : `levels`}>Level {level}</p>
+									<p className={!currentUser && level !== 'I' ? `levels disabled` : `levels`}>
+										Level {level}
+									</p>
 								</Link>
 							</div>
 						);

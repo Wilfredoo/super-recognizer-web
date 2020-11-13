@@ -17,10 +17,15 @@ function GamesIndex() {
 				games.map((data) => {
 					return (
 						<div>
+							{data.url !== 'recognise-your-friends' ?
 							<Link to={`/levels/${data.url}`}>
 								<p className="games">{data.title}</p>
-                {data.url === 'recognise-your-friends' && <p className="coming-soon">** Coming Soon **</p>}
+								
 							</Link>
+							: <Link to={`/${data.url}`}>
+							<p className="games">{data.title}</p>
+								<p className="coming-soon">** Coming Soon **</p>
+						</Link>}
 						</div>
 					);
 				})}

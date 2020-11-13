@@ -2,6 +2,7 @@ import LevelsIndex from './LevelsIndex';
 import RememberTheFace from './Games/RememberTheFace/RememberTheFace';
 import CelebrityMatch from './Games/CelebrityMatch/CelebrityMatch';
 import WorldOfAverages from './Games/WorldOfAverages/WorldOfAverages';
+import RecogniseYourFriends from './Games/RecogniseYourFriends/RecogniseYourFriends';
 import firebaseConfigDEV from '../config/FirebaseConfigDEV';
 import * as firebase from 'firebase';
 import React from 'react';
@@ -35,6 +36,11 @@ export default function App() {
 								<Route exact from="/" render={(props) => <Home {...props} />} />
 								<Route exact path="/sponsors" render={(props) => <Sponsors {...props} />} />
 								<Route exact path="/feedback" render={(props) => <Feedback {...props} />} />
+								<Route
+									exact
+									path="/recognise-your-friends"
+									render={(props) => <RecogniseYourFriends {...props} />}
+								/>
 								<Route path="/research" component={Research} exact={true} />
 								<Route path="/levels/:game" component={LevelsIndex} exact={true} />
 								<Route
