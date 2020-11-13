@@ -57,16 +57,17 @@ p {
 
 .coming-soon {
 	font-size: 15px;
-	margin:-30px;
+	margin: -30px;
 }
 
 .coming-soon-b {
 	font-size: 15px;
-	margin-top:-20px;
+	margin-top: -20px;
 }
 
-.email, .colored {
-	color: #0278ae
+.email,
+.colored {
+	color: #0278ae;
 }
 
 .important {
@@ -101,9 +102,31 @@ p {
 	border: 1px solid black;
 }
 
-.instructions,
-.score {
-	margin-top: 50px;
+// .instructions,
+// .score {
+// 	margin-top: 50px;
+// }
+
+.highlight-container, .highlight {
+  position: relative
+}
+.highlight-container {
+  display: inline-block
+ }
+ .highlight-container::before {
+ content: ' ';
+ display: block;
+ height: 90%;
+ width: 100%;
+ margin-left: -3px;
+ margin-right: -3px;
+ position: absolute;
+ background-color: rgba(234,221,6,0.3);
+ transform: rotate(2deg);
+ top: -1px;
+ left: -1px;
+ border-radius: 20% 25% 20% 24%;
+ padding: 10px 3px 3px 10px
 }
 
 .buttonGroup {
@@ -148,6 +171,8 @@ a:hover {
 
 .homeText {
 	line-height: 55px;
+	margin: 10px;
+	text-align: justify;
 }
 
 .text {
@@ -188,12 +213,11 @@ p {
 	display: flex;
 	position: absolute;
 	right: 25px;
-	top:10vh;
+	top: 10vh;
 }
 
 .authButton {
-margin : 0 8px;
-
+	margin: 0 8px;
 }
 
 .btn {
@@ -310,8 +334,9 @@ button:focus {
 		// margin-right: -20px;
 	}
 	.train {
-		font-size: 45px;
+		font-size: 38px;
 		line-height: 60px;
+		padding-top: 20px;
 	}
 	p {
 		font-size: 18px;

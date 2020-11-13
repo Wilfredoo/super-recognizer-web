@@ -26,7 +26,7 @@ export default function Page({
                   <div className="instructions">
                     <div className="instruction-line">
                       <img className="eye" src="/eye.png" />
-                      <p className="instructionText"> Remember this Face</p>
+                      <p className="instructionText"> Remember this face</p>
                     </div>
                     <div>
                       <img className="photo" src={photoToShow.url} />
@@ -130,6 +130,7 @@ export default function Page({
             <>
               <ScoreResult
                 game={"remember-the-face"}
+                game_id={"82d09872-258f-11eb-adc1-0242ac120002"}
                 score={score}
                 totalQuestions={numberOfPages}
               />

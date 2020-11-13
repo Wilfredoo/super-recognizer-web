@@ -11,6 +11,7 @@
     "@testing-library/user-event": "^7.1.2",
     "dotenv": "^8.2.0",
     "firebase": "^7.24.0",
+    "history": "^5.0.0",
     "node-sass": "^4.14.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
@@ -18,7 +19,8 @@
     "react-https-redirect": "^1.1.0",
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.3",
-    "react-spinners": "^0.9.0"
+    "react-spinners": "^0.9.0",
+    "shortid": "^2.2.16"
   },
   "scripts": {
     "start": "react-scripts start",

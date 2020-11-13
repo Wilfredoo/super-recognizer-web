@@ -18,7 +18,7 @@ const Home = () => {
 						<button className="authButton">Log In</button>
 					</Link>
 				)}
-				{currentUser && <p className="authButton"> Welcome {currentUser.displayName}</p>}
+				{currentUser && <p className="authButton">Welcome <span className="highlight-container"> <span className="highlight"> {'   '}{currentUser.displayName}{'   '}</span></span></p>}
 
 				{currentUser && (
 					<button className="authButton" onClick={() => fire.auth().signOut()}>

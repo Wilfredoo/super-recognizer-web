@@ -1,26 +1,36 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import 'firebase/firestore';
 import { Link } from 'react-router-dom';
 import Button from '@material-ui/core/Button';
 import { AuthContext } from './Auth/Auth';
+import shortid from 'shortid';
+import * as firebase from 'firebase';
+import { withRouter } from 'react-router';
 
-export default function ScoreResult({ game, score, totalQuestions }) {
+const ScoreResult = ({ game, game_id, score, totalQuestions, history }) => {
 	const { currentUser } = useContext(AuthContext);
 	const [openModal, setOpenModal] = useState(false);
 
-	// const saveScore = async (name, email, password, uid) => {
-	// 	return firebase.firestore().collection('games').doc(uid).set({
-	// 		gameId,
-	// 		playerId,
-	// 		date,
-	// 		maxLevel,
-	// 	});
-	// }
-	//hello
+	const saveScore = async () => {
+		const roundId = shortid.generate();
+		return firebase.firestore().collection('rounds').doc(roundId).set({
+			roundId,
+			game,
+			game_id,
+			playerId: currentUser.uid,
+			date: Date.now(),
+			score,
+		});
+	};
 
 	const next = () => {
+		if (!currentUser) { 
 		setOpenModal(true);
-		// saveScore()
+		return
+	} else {
+		saveScore();
+		history.push(`/levels/${game}`);
+	}
 	};
 
 	return (
@@ -52,7 +62,7 @@ export default function ScoreResult({ game, score, totalQuestions }) {
 							}}
 							variant="contained"
 						>
-							Next level
+							Unlock Next Level
 						</Button>
 					)}
 					<Link to={`/games`}>
@@ -85,4 +95,6 @@ export default function ScoreResult({ game, score, totalQuestions }) {
 			</div>
 		</>
 	);
-}
+};
+
+export default withRouter(ScoreResult);
