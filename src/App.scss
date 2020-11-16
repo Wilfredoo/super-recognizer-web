@@ -295,9 +295,11 @@ button:focus {
 
 @media screen and (max-width: 992px) {
 	.authButtons {
-		position: static;
-		justify-content: space-around;
-		margin-top: 15px;
+		// position: static;
+		// justify-content: space-around;
+		// margin-top: 15px;
+			top: 9vh;
+		
 	}
 
 	.disclaimer {
@@ -330,7 +332,7 @@ button:focus {
 	.train {
 		font-size: 38px;
 		line-height: 60px;
-		margin-top: 10px;
+		margin-top: 8vh;
 	}
 
 	p {

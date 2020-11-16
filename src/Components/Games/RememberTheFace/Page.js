@@ -17,13 +17,12 @@ export default function Page({
 }) {
 	return (
 		<>
-		{console.log("phot to show", photoToShow)}
 			<div>
 				<>
 					{currentPage === 0 && (
 						<>
 							<div>
-								{level === "1" && (
+								{level === '1' && (
 									<div className="instructions">
 										<div className="instruction-line">
 											<img className="eye" src="/eye.png" />
@@ -34,7 +33,7 @@ export default function Page({
 										</div>
 									</div>
 								)}
-								{(level === "2" || level === "3") && (
+								{(level === '2' || level === '3') && (
 									<div className="instructions">
 										<div className="instruction-line">
 											<img className="eye" src="/eye.png" />
@@ -46,7 +45,6 @@ export default function Page({
 										<img className="photo" src={photoToShow2.url} />
 									</div>
 								)}
-
 								<div className="buttonGroup">
 									<Button
 										style={{
@@ -74,8 +72,8 @@ export default function Page({
 							<div>
 								<div className="instruction-line">
 									<img className="eye" src="/eye.png" />
-									{level === "1" && <p className="instructionText">Is this the face you saw?</p>}
-									{(level === "2" || level === "3") && (
+									{level === '1' && <p className="instructionText">Is this the face you saw?</p>}
+									{(level === '2' || level === '3') && (
 										<p className="instructionText">Is this one of the faces you saw?</p>
 									)}
 								</div>

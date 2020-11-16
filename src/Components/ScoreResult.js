@@ -8,7 +8,6 @@ import * as firebase from 'firebase';
 import { withRouter } from 'react-router';
 
 const ScoreResult = ({ game, game_id, score, totalQuestions, level, history }) => {
-	console.log("level in score result", level)
 	const { currentUser } = useContext(AuthContext);
 	const [openModal, setOpenModal] = useState(false);
 	const store = firebase.firestore()

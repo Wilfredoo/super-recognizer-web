@@ -8,11 +8,7 @@ const AuthButtons = () => {
 
 	return (
 		<div className="authButtons">
-			{!currentUser && (
-				<Link to="/signup">
-					<button className="authButton">Sign Up</button>
-				</Link>
-			)}
+		
 			{!currentUser && (
 				<Link to="/login">
 					<button className="authButton">Log In</button>

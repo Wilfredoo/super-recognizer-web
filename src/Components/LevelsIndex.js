@@ -26,10 +26,9 @@ function LevelsIndex({
 
 	const [lastMaxScore, setLastMaxScore] = useState(null);
 	const store = firebase.firestore();
-	
+
 	useEffect(() => {
-		console.log('user uid', currentUser.uid);
-		getLastMaxScore();
+		currentUser && getLastMaxScore();
 	});
 
 	const roundsRef = store.collection('rounds');
