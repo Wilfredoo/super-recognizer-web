@@ -4,7 +4,7 @@ export default function Footer() {
   return (
     <>
       <div className="footer">
-        <p className="footerText">Copyright © 2020. Super Recogniser. All rights reserved.</p>
+        <p className="footerText">Copyright © {new Date().getFullYear()}. Super Recogniser. All rights reserved.</p>
       </div>
     </>
   );

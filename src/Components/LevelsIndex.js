@@ -23,29 +23,23 @@ function LevelsIndex({
 		'Lili Reinhart',
 		'Michelle Obama',
 	];
-	const [lastMaxScore, setLastMaxScore] = useState(null)
-	const store = firebase.firestore()
+	const [lastMaxScore, setLastMaxScore] = useState(null);
+	const store = firebase.firestore();
 	useEffect(() => {
-		getLastMaxScore()
-	})
+		getLastMaxScore();
+	});
 
-	const roundsRef = store.collection("rounds")
+	const roundsRef = store.collection('rounds');
 	const getLastMaxScore = async () => {
 		const roundsSnapshot = await roundsRef
-		// .where("name", "==", celebrity)
-		// .where("real", "==", false)
-		.get();
+			// .where("n	ame", "==", celebrity)
+			// .where("real", "==", false)
+			.get();
 
 		await roundsSnapshot.docs.forEach((docSnapshot) => {
-		  console.log(docSnapshot.data())
+			console.log(docSnapshot.data());
 		});
-	
-	}
-
-
-
-
-
+	};
 
 	return (
 		<div className="componentContainer">
@@ -72,8 +66,20 @@ function LevelsIndex({
 				? levelsArray.map((level) => {
 						return (
 							<div>
-								<Link to={level === 1 || currentUser && (lastMaxScore > (10 * level - 3)) ? `/game/${game}/${level}` : `#`}>
-									<p className={level === 1 || currentUser && (lastMaxScore > (10 * level - 3)) ? `levels` : `levels disabled`}>
+								<Link
+									to={
+										level === 1 || (currentUser && lastMaxScore > 10 * level - 3)
+											? `/game/${game}/${level}`
+											: `#`
+									}
+								>
+									<p
+										className={
+											level === 1 || (currentUser && lastMaxScore > 10 * level - 3)
+												? `levels`
+												: `levels disabled`
+										}
+									>
 										Level {level}
 									</p>
 								</Link>
@@ -83,8 +89,16 @@ function LevelsIndex({
 				: celebrities.map((celebrity) => {
 						return (
 							<div>
-								<Link to={`/game/${game}/${celebrity}`}>
-									<p className="celebrity-levels">{celebrity}</p>
+								<Link to={(celebrity === 'Trump' || currentUser) ? `/game/${game}/${celebrity}` : `#`}>
+									<p
+										className={
+											celebrity === 'Trump' || currentUser
+												? `celebrity-levels`
+												: `celebrity-levels disabled`
+										}
+									>
+										{celebrity}
+									</p>
 								</Link>
 							</div>
 						);
