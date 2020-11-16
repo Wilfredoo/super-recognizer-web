@@ -23,21 +23,25 @@ function LevelsIndex({
 		'Lili Reinhart',
 		'Michelle Obama',
 	];
+
 	const [lastMaxScore, setLastMaxScore] = useState(null);
 	const store = firebase.firestore();
+	
 	useEffect(() => {
+		console.log('user uid', currentUser.uid);
 		getLastMaxScore();
 	});
 
 	const roundsRef = store.collection('rounds');
 	const getLastMaxScore = async () => {
 		const roundsSnapshot = await roundsRef
-			// .where("n	ame", "==", celebrity)
-			// .where("real", "==", false)
+			.where('playerId', '==', currentUser.uid)
+			.orderBy('lastMaxScore', 'desc')
+			.limit(1)
 			.get();
 
 		await roundsSnapshot.docs.forEach((docSnapshot) => {
-			console.log(docSnapshot.data());
+			console.log('gimme that last max score: ', docSnapshot.data());
 		});
 	};
 
@@ -89,7 +93,7 @@ function LevelsIndex({
 				: celebrities.map((celebrity) => {
 						return (
 							<div>
-								<Link to={(celebrity === 'Trump' || currentUser) ? `/game/${game}/${celebrity}` : `#`}>
+								<Link to={celebrity === 'Trump' || currentUser ? `/game/${game}/${celebrity}` : `#`}>
 									<p
 										className={
 											celebrity === 'Trump' || currentUser
