@@ -18,6 +18,7 @@ import HttpsRedirect from 'react-https-redirect';
 import Login from './Auth/Login';
 import SignUp from './Auth/SignUp';
 import { AuthProvider } from './Auth/Auth';
+import AuthButtons from './AuthButtons';
 
 export default function App() {
 	if (!firebase.apps.length) {
@@ -30,6 +31,7 @@ export default function App() {
 				<Router>
 					<div class="appParent">
 						<Header />
+						<AuthButtons />
 						<div className="app">
 							<Switch>
 								<Route exact from="/games" render={(props) => <GamesIndex {...props} />} />
