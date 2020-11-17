@@ -8,13 +8,13 @@ export default function Page({
   game,
   answer,
   nextPage,
-  back,
   currentPage,
   celebrity,
   photoToShow,
   score,
   loading,
   correctAnswer,
+  level
 }) {
   return (
     <>
@@ -108,7 +108,7 @@ export default function Page({
           )}
           {currentPage === 11 && (
             <>
-              <ScoreResult game={game} score={score} totalQuestions={10} />
+              <ScoreResult game={game} score={score} totalQuestions={10} level={level} />
             </>
           )}
         </>

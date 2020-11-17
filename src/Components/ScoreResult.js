@@ -12,6 +12,7 @@ const ScoreResult = ({ game, game_id, score, totalQuestions, level, history }) =
 	const [openModal, setOpenModal] = useState(false);
 	const store = firebase.firestore()
 	const saveScore = async () => {
+		console.log("last max score recipe", score, level)
 		const roundId = shortid.generate();
 		return store.collection('rounds').doc(roundId).set({
 			roundId,
@@ -19,7 +20,7 @@ const ScoreResult = ({ game, game_id, score, totalQuestions, level, history }) =
 			game_id,
 			playerId: currentUser.uid,
 			date: Date.now(),
-			lastMaxScore: (score + level * 10 + 10),
+			lastMaxScore: (score + level * 10),
 		});
 	};
 
@@ -40,7 +41,7 @@ const ScoreResult = ({ game, game_id, score, totalQuestions, level, history }) =
 				<p className="scoreLine">Total questions: {totalQuestions}</p>
 				
 				<div className="buttonGroup">
-					{score < 7 ? (
+					{score <= 7 ? (
 						<Link to={`/levels/${game}`}>
 							<Button
 								style={{
@@ -55,7 +56,7 @@ const ScoreResult = ({ game, game_id, score, totalQuestions, level, history }) =
 						</Link>
 					) : (
 						<>
-						{level !== '3' && <p>You finished all the levels! Hurray!</p>}
+						{level === '3' && <p>You finished all the levels! Hurray!</p>}
 						<Button
 							onClick={() => next()}
 							style={{

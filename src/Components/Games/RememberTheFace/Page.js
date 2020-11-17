@@ -125,7 +125,7 @@ export default function Page({
 								game_id={'82d09872-258f-11eb-adc1-0242ac120002'}
 								score={score}
 								totalQuestions={numberOfPages}
-								level
+								level={level}
 							/>
 						</>
 					)}
