@@ -46,7 +46,7 @@ export default function App() {
 								<Route path="/research" component={Research} exact={true} />
 								<Route path="/levels/:game" component={LevelsIndex} exact={true} />
 								<Route
-									path="/game/celebrity-match/:celebrity"
+									path="/game/celebrity-match/:celebrity/:level"
 									component={CelebrityMatch}
 									exact={true}
 								/>

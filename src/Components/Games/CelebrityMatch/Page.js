@@ -18,6 +18,7 @@ export default function Page({
 }) {
   return (
     <>
+    {console.log("photo to show in page", photoToShow)}
       <div>
         <>
           {currentPage === 0 && (
@@ -108,7 +109,7 @@ export default function Page({
           )}
           {currentPage === 11 && (
             <>
-              <ScoreResult game={game} score={score} totalQuestions={10} level={level} />
+              <ScoreResult game={game} score={score} totalQuestions={10} level={level} game_id={"c98ddc78-2901-11eb-adc1-0242ac120002"} />
             </>
           )}
         </>

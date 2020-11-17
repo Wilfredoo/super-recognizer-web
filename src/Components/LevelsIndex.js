@@ -11,6 +11,8 @@ function LevelsIndex({
 }) {
 	const { currentUser } = useContext(AuthContext);
 	const levelsArray = [1, 2, 3];
+
+	const celebrityLevelsArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
 	const celebrities = [
 		'Trump',
 		'Shakira',
@@ -39,7 +41,6 @@ function LevelsIndex({
 			.orderBy('lastMaxScore', 'desc')
 			.limit(1)
 			.get();
-
 		await roundsSnapshot.docs.forEach((docSnapshot) => {
 			setLastMaxScore(docSnapshot.data().lastMaxScore);
 		});
@@ -90,18 +91,24 @@ function LevelsIndex({
 							</div>
 						);
 				  })
-				: celebrities.map((celebrity) => {
+				: celebrityLevelsArray.map((level) => {
 						return (
 							<div>
-								<Link to={celebrity === 'Trump' || currentUser ? `/game/${game}/${celebrity}` : `#`}>
+								<Link
+									to={
+										level === 1 || (currentUser && lastMaxScore > 10 * level - 3)
+											? `/game/${game}/${celebrities[level]}/${level}`
+											: `#`
+									}
+								>
 									<p
 										className={
-											celebrity === 'Trump' || currentUser
-												? `celebrity-levels`
-												: `celebrity-levels disabled`
+											level === 1 || (currentUser && lastMaxScore > 10 * level - 3)
+												? `levels`
+												: `levels disabled`
 										}
 									>
-										{celebrity}
+										{celebrities[level]}
 									</p>
 								</Link>
 							</div>

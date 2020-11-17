@@ -6,7 +6,7 @@ import processImages2 from "../../../Helpers/processImages2.js";
 
 export default function CelebrityMatch({
   match: {
-    params: { celebrity },
+    params: { celebrity, level },
   },
 }) {
   const [score, setScore] = useState(0);
@@ -20,6 +20,7 @@ export default function CelebrityMatch({
   const pageArray = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
 
   async function getAllImages() {
+    console.log("celebrity in get all images", celebrity)
     const realImagesSnapshot = await celebritiesRef
       .where("name", "==", celebrity)
       .where("real", "==", true)
@@ -90,6 +91,7 @@ export default function CelebrityMatch({
           photoToShow={picArrayState[currentPage]}
           score={score}
           celebrity={celebrityName}
+          level={level}
         />
       );
     }
