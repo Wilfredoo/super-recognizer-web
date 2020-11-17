@@ -35,12 +35,14 @@ function LevelsIndex({
 	const getLastMaxScore = async () => {
 		const roundsSnapshot = await roundsRef
 			.where('playerId', '==', currentUser.uid)
+			.where('game', '==', game)
 			.orderBy('lastMaxScore', 'desc')
 			.limit(1)
 			.get();
 
 		await roundsSnapshot.docs.forEach((docSnapshot) => {
-			console.log('gimme that last max score: ', docSnapshot.data());
+			console.log('gimme that last max score: ', docSnapshot.data().lastMaxScore);
+			setLastMaxScore(docSnapshot.data().lastMaxScore);
 		});
 	};
 
@@ -69,6 +71,7 @@ function LevelsIndex({
 				? levelsArray.map((level) => {
 						return (
 							<div>
+								{console.log('true or false', lastMaxScore > 10 * level - 3)}
 								<Link
 									to={
 										level === 1 || (currentUser && lastMaxScore > 10 * level - 3)

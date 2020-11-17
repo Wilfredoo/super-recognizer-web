@@ -19,7 +19,7 @@ const ScoreResult = ({ game, game_id, score, totalQuestions, level, history }) =
 			game_id,
 			playerId: currentUser.uid,
 			date: Date.now(),
-			lastMaxScore: (score + level * 10),
+			lastMaxScore: (score + level * 10 + 10),
 		});
 	};
 
@@ -38,6 +38,7 @@ const ScoreResult = ({ game, game_id, score, totalQuestions, level, history }) =
 			<div className="score">
 				<p className="scoreLine">Right answers: {JSON.stringify(score)}</p>
 				<p className="scoreLine">Total questions: {totalQuestions}</p>
+				
 				<div className="buttonGroup">
 					{score < 7 ? (
 						<Link to={`/levels/${game}`}>
@@ -53,6 +54,8 @@ const ScoreResult = ({ game, game_id, score, totalQuestions, level, history }) =
 							</Button>
 						</Link>
 					) : (
+						<>
+						{level !== '3' && <p>You finished all the levels! Hurray!</p>}
 						<Button
 							onClick={() => next()}
 							style={{
@@ -62,8 +65,9 @@ const ScoreResult = ({ game, game_id, score, totalQuestions, level, history }) =
 							}}
 							variant="contained"
 						>
-							Unlock Next Level
+							 Unlock Next Level
 						</Button>
+						</>
 					)}
 					<Link to={`/games`}>
 						<Button
