@@ -32,7 +32,7 @@ const SignUp = ({ history }) => {
 			try {
 				const credentials = await fire.auth().createUserWithEmailAndPassword(email.value, password.value);
 				await saveUser(name.value, email.value, password.value, credentials.user.uid);
-				updateProfile(credentials, name.value);
+				await updateProfile(credentials, name.value);
 				history.push('/');
 			} catch (error) {
 				alert(error);

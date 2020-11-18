@@ -75,6 +75,19 @@ const ScoreResult = ({ game, game_id, score, totalQuestions, level, history }) =
 							)}
 						</>
 					)}
+					{game === 'celebrity-match' &&
+					<Button
+									onClick={() => next()}
+									style={{
+										margin: '10px 0',
+										padding: '15px 25px',
+										width: '220px',
+									}}
+									variant="contained"
+								>
+									Unlock Next Level
+								</Button>
+								}
 					<Link to={`/games`}>
 						<Button
 							style={{

@@ -1,5 +1,5 @@
-import React, { useContext } from 'react'
-import {Link} from 'react-router-dom'
+import React, { useContext } from 'react';
+import { Link } from 'react-router-dom';
 import fire from './Auth/base';
 import { AuthContext } from './Auth/Auth';
 
@@ -8,26 +8,27 @@ const AuthButtons = () => {
 
 	return (
 		<div className="authButtons">
-		
 			{!currentUser && (
 				<Link to="/login">
 					<button className="authButton">Log In</button>
 				</Link>
 			)}
-			{currentUser && (
+			{!currentUser ? (
+				
+				<p className="authButton">
+					Welcome!
+					
+				</p>
+			) : (
 				<p className="authButton">
 					Welcome{' '}
 					<span className="highlight-container">
 						{' '}
-						<span className="highlight">
-							{' '}
-							{'   '}
-							{currentUser.displayName}
-							{'   '}
-						</span>
+						<span className="highlight">{currentUser.displayName}</span>
 					</span>
 				</p>
-			)}
+			)
+			}
 
 			{currentUser && (
 				<button className="authButton" onClick={() => fire.auth().signOut()}>
@@ -38,4 +39,4 @@ const AuthButtons = () => {
 	);
 };
 
-export default AuthButtons
+export default AuthButtons;

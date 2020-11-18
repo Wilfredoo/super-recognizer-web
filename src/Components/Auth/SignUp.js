@@ -50,7 +50,7 @@ const useStyles = makeStyles((theme) => ({
 	},
 }));
 
-const SignUp = ({history}) => {
+const SignUp = ({ history }) => {
 	const classes = useStyles();
 
 	const saveUser = async (name, email, password, uid) => {
@@ -60,16 +60,17 @@ const SignUp = ({history}) => {
 			password,
 			uid,
 		});
-  };
-  
-	const { currentUser } = useContext(AuthContext);
+	};
 
-  const updateProfile = (userCredentials, displayName) => {
+	const { currentUser } = useContext(AuthContext);
+	console.log("current user in signup", currentUser)
+
+	const updateProfile = (userCredentials, displayName) => {
 		return userCredentials.user.updateProfile({
 			displayName,
 		});
-  };
-  const handleSignUp = useCallback(
+	};
+	const handleSignUp = useCallback(
 		async (event) => {
 			event.preventDefault();
 			const { name, email, password } = event.target.elements;
@@ -77,7 +78,10 @@ const SignUp = ({history}) => {
 				const credentials = await fire.auth().createUserWithEmailAndPassword(email.value, password.value);
 				await saveUser(name.value, email.value, password.value, credentials.user.uid);
 				await updateProfile(credentials, name.value);
-				history.push('/');
+				history.push({
+					pathname: '/',
+					state: { name: name.value },
+				});
 			} catch (error) {
 				alert(error);
 			}
@@ -88,7 +92,6 @@ const SignUp = ({history}) => {
 	if (currentUser) {
 		return <Redirect to="/" />;
 	}
-
 
 	return (
 		<Container component="main" maxWidth="xs">

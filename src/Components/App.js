@@ -20,7 +20,7 @@ import SignUp from './Auth/SignUp';
 import { AuthProvider } from './Auth/Auth';
 import AuthButtons from './AuthButtons';
 
-export default function App() {
+export default function App(props) {
 	if (!firebase.apps.length) {
 		firebase.initializeApp(firebaseConfigDEV);
 	}

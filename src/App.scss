@@ -217,8 +217,14 @@ p {
 	top: 10vh;
 }
 
-.authButton {
+.authButton, .welcomeText {
 	margin: 0 8px;
+}
+
+.welcomeText {
+	margin: 0 8px;
+// right: 160;
+// position: absolute;
 }
 
 .btn {
