@@ -8,18 +8,7 @@ const AuthButtons = () => {
 
 	return (
 		<div className="authButtons">
-			{!currentUser && (
-				<Link to="/login">
-					<button className="authButton">Log In</button>
-				</Link>
-			)}
-			{!currentUser ? (
-				
-				<p className="authButton">
-					Welcome!
-					
-				</p>
-			) : (
+			{currentUser && currentUser.displayName && (
 				<p className="authButton">
 					Welcome{' '}
 					<span className="highlight-container">
@@ -27,8 +16,21 @@ const AuthButtons = () => {
 						<span className="highlight">{currentUser.displayName}</span>
 					</span>
 				</p>
-			)
-			}
+			)}
+			{currentUser && !currentUser.displayName && (
+				<p className="authButton">
+					Welcome{' '}
+					<span className="highlight-container">
+						<span className="highlight"> {currentUser.email}</span>
+					</span>{' '}
+				</p>
+			)}
+
+			{!currentUser && (
+				<Link to="/login">
+					<button className="authButton">Log In</button>
+				</Link>
+			)}
 
 			{currentUser && (
 				<button className="authButton" onClick={() => fire.auth().signOut()}>

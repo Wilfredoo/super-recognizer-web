@@ -103,7 +103,11 @@ export default function Page({
 												color: 'white',
 											}}
 											variant="contained"
-											onClick={level === '2' || level === '3' ? () => answer('YES', photoToShow2.rightAnswer) : () => answer('YES', photoToShow.rightAnswer)}
+											onClick={
+												level === '2' || level === '3'
+													? () => answer('YES', photoToShow2.rightAnswer)
+													: () => answer('YES', photoToShow.rightAnswer)
+											}
 										>
 											YES
 										</Button>
@@ -117,7 +121,11 @@ export default function Page({
 												color: 'white',
 											}}
 											variant="contained"
-											onClick={level === '2' || level === '3' ? () => answer('NO', photoToShow2.rightAnswer) : () => answer('NO', photoToShow.rightAnswer)}
+											onClick={
+												level === '2' || level === '3'
+													? () => answer('NO', photoToShow2.rightAnswer)
+													: () => answer('NO', photoToShow.rightAnswer)
+											}
 										>
 											NO
 										</Button>

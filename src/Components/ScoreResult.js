@@ -12,7 +12,6 @@ const ScoreResult = ({ game, game_id, score, totalQuestions, level, history }) =
 	const [openModal, setOpenModal] = useState(false);
 	const store = firebase.firestore();
 	const saveScore = async () => {
-		console.log('last max score recipe', score, level);
 		const roundId = shortid.generate();
 		return store
 			.collection('rounds')

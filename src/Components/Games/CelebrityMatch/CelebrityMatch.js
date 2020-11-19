@@ -20,7 +20,6 @@ export default function CelebrityMatch({
   const pageArray = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
 
   async function getAllImages() {
-    console.log("celebrity in get all images", celebrity)
     const realImagesSnapshot = await celebritiesRef
       .where("name", "==", celebrity)
       .where("real", "==", true)

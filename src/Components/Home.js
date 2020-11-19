@@ -1,30 +1,10 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { AuthContext } from './Auth/Auth';
 
-const Home = ({ location }) => {
-	const { currentUser } = useContext(AuthContext);
-	{
-		location && location.state && console.log('location', location.state.name);
-	}
-	{
-		currentUser && console.log('current user', currentUser.displayName);
-	}
+const Home = () => {
 
 	return (
 		<>
-			{/* {location && location.state && (
-				<div className="authButtons">
-					<p className="welcomeText">
-						Welcome{' '}
-						<span className="highlight-container">
-							{' '}
-							<span className="highlight">{location.state.name}</span>
-						
-						</span>
-					</p>
-				</div>
-			)} */}
 			<div className="componentContainer">
 				<div className="textContainer">
 					<h1 className="train">TRAIN YOUR FACE RECOGNITION SKILLS</h1>

@@ -63,24 +63,23 @@ const SignUp = ({ history }) => {
 	};
 
 	const { currentUser } = useContext(AuthContext);
-	console.log("current user in signup", currentUser)
 
 	const updateProfile = (userCredentials, displayName) => {
 		return userCredentials.user.updateProfile({
 			displayName,
 		});
 	};
+
 	const handleSignUp = useCallback(
 		async (event) => {
 			event.preventDefault();
 			const { name, email, password } = event.target.elements;
 			try {
 				const credentials = await fire.auth().createUserWithEmailAndPassword(email.value, password.value);
-				await saveUser(name.value, email.value, password.value, credentials.user.uid);
 				await updateProfile(credentials, name.value);
+				await saveUser(name.value, email.value, password.value, credentials.user.uid);
 				history.push({
 					pathname: '/',
-					state: { name: name.value },
 				});
 			} catch (error) {
 				alert(error);

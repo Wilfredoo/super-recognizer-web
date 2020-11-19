@@ -18,7 +18,6 @@ export default function Page({
 }) {
   return (
     <>
-    {console.log("photo to show in page", photoToShow)}
       <div>
         <>
           {currentPage === 0 && (
