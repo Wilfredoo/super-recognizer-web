@@ -13,6 +13,7 @@ export default function Page({
 	photoToShow2,
 	score,
 	correctAnswer,
+	correctAnswer2,
 	numberOfPages,
 }) {
 	return (
@@ -39,9 +40,7 @@ export default function Page({
 											<img className="eye" src="/eye.png" />
 											<p className="instructionText"> Remember these Faces</p>
 										</div>
-
 										<img className="photo" src={photoToShow.url} />
-
 										<img className="photo" src={photoToShow2.url} />
 									</div>
 								)}
@@ -71,14 +70,24 @@ export default function Page({
 						<>
 							<div>
 								<div className="instruction-line">
-									<img className="eye" src="/eye.png" />
-									{level === '1' && <p className="instructionText">Is this the face you saw?</p>}
+									{level === '1' && (
+										<div className="flex">
+											<img className="eye" src="/eye.png" />
+
+											<p className="instructionText">Is this the face you saw?</p>
+
+											<img className="photo" src={photoToShow.url} />
+										</div>
+									)}
 									{(level === '2' || level === '3') && (
-										<p className="instructionText">Is this one of the faces you saw?</p>
+										<div className="flex">
+											<img className="eye" src="/eye.png" />
+
+											<p className="instructionText">Is this one of the faces you saw?</p>
+											<img className="photo" src={photoToShow2.url} />
+										</div>
 									)}
 								</div>
-
-								<img className="photo" src={photoToShow.url} />
 
 								{correctAnswer === true && <p className="correct">Correct ✔</p>}
 								{correctAnswer === false && <p className="incorrect">Incorrect X</p>}
@@ -88,14 +97,13 @@ export default function Page({
 											style={{
 												backgroundColor: '#206a5d',
 												width: '150px',
-
 												margin: '10px 0px',
 												padding: '10px 25px',
 												fontSize: '18px',
 												color: 'white',
 											}}
 											variant="contained"
-											onClick={() => answer('YES', photoToShow.rightAnswer)}
+											onClick={level === '2' || level === '3' ? () => answer('YES', photoToShow2.rightAnswer) : () => answer('YES', photoToShow.rightAnswer)}
 										>
 											YES
 										</Button>
@@ -109,7 +117,7 @@ export default function Page({
 												color: 'white',
 											}}
 											variant="contained"
-											onClick={() => answer('NO', photoToShow.rightAnswer)}
+											onClick={level === '2' || level === '3' ? () => answer('NO', photoToShow2.rightAnswer) : () => answer('NO', photoToShow.rightAnswer)}
 										>
 											NO
 										</Button>

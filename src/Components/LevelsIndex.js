@@ -12,7 +12,7 @@ function LevelsIndex({
 	const { currentUser } = useContext(AuthContext);
 	const levelsArray = [1, 2, 3];
 
-	const celebrityLevelsArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
+	const celebrityLevelsArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 	const celebrities = [
 		'Trump',
 		'Shakira',

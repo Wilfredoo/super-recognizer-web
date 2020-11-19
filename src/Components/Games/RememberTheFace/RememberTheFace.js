@@ -81,6 +81,7 @@ function RememberTheFace({
 
 	const arrayOfPages = pageArray.map((data, i) => {
 		if (picArrayState) {
+			console.log("pic array state", picArrayState)
 			return (
 				<Page
 					key={i}
